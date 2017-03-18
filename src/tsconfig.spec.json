@@ -8,6 +8,9 @@
     "types": [
       "jasmine",
       "node"
+    ],
+    "typeRoots": [
+      "../node_modules/@types"
     ]
   },
   "files": [
