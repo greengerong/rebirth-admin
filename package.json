@@ -8,7 +8,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i18n:extract": "ng-xi18n",
+    "docs:serve": "compodoc ./src/app/exports/ -p ./src/tsconfig.json -b / -d ./compodocs/ --hideGenerator -s",
+    "docs:gen": "compodoc ./src/app/exports/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
+    "demo:gen": "ng build --prod --aot --base-href=/rebirth-admin/",
+    "github-pages:push": "ngh --message \"rebirth ui demo deploy\"",
+    "docs:deploy": "npm run demo:gen && npm run docs:gen && npm run github-pages:push && rm -rf ./dist"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +44,7 @@
     "@angular/compiler-cli": ">=4.0.0-beta <5.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "angular-cli-ghpages": "^0.5.0",
     "codelyzer": "^2.0.1",
     "compodoc": "0.0.41",
     "jasmine-core": "~2.5.2",
