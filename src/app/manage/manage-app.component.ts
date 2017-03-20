@@ -33,6 +33,44 @@ export class ManageAppComponent implements OnInit {
         url: 'https://github.com/greengerong/ng2-rebirth-ui',
         target: '_blank',
         icon: 'glyphicon glyphicon-user'
+      },
+      {
+        text: 'Themes',
+        icon: 'glyphicon glyphicon-cog',
+        children: [
+          {
+            text: 'Default',
+            url: './?theme=Default'
+          },
+          {
+            text: 'Dark',
+            url: './?theme=Dark'
+          },
+          {
+            text: 'Cosmo',
+            url: './?theme=Cosmo'
+          },
+          {
+            text: 'Paper',
+            url: './?theme=Paper'
+          },
+          {
+            text: 'Journal',
+            url: './?theme=Journal'
+          },
+          {
+            text: 'Readable',
+            url: './?theme=Readable'
+          },
+          {
+            text: 'United',
+            url: './?theme=United'
+          },
+          {
+            text: 'Sandstone',
+            url: './?theme=Sandstone'
+          }
+        ]
       }
     ]
   };
