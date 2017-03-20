@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RebirthUIModule } from 'ng4-rebirth-ui';
+import { RebirthChartModule } from 'rebirth-chart';
+import { PageFooterComponent } from './page-footer';
 
 @NgModule({
   imports: [
@@ -9,13 +12,19 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     // ReactiveFormsModule,
     HttpModule,
+    RebirthUIModule,
+    RebirthChartModule
   ],
-  declarations: [],
-  providers: [],
+  declarations: [
+    PageFooterComponent
+  ],
   exports: [
     CommonModule,
     FormsModule,
     HttpModule,
+    RebirthUIModule,
+    RebirthChartModule,
+    PageFooterComponent
   ]
 })
 export class SharedModule {

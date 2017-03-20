@@ -1,0 +1,6 @@
+{
+  "env": "dev",
+  "api": {
+    "host": "http://localhost:8000/api"
+  }
+}

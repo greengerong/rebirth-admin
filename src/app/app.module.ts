@@ -8,6 +8,8 @@ import { RebirthUIModule } from 'ng4-rebirth-ui';
 import { CoreModule } from './core';
 import { SharedModule } from './shared';
 import { AppComponent } from './app.component';
+import { RebirthChartModule } from 'rebirth-chart';
+import { ROUTER_CONFIG } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(ROUTER_CONFIG),
     RebirthUIModule.forRoot(),
+    RebirthChartModule.forRoot(),
     CoreModule,
     SharedModule
   ],

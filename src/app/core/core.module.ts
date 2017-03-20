@@ -21,6 +21,7 @@ import { ThemeService } from './theme';
   exports: [
     RebirthHttpModule,
     RebirthStorageModule,
+    RebirthEventSourceModule
   ]
 })
 export class CoreModule {
