@@ -25,3 +25,9 @@
   }
 
 }
+
+:host /deep/ {
+  .top-menu-bar {
+    margin: 0px;
+  }
+}
