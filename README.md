@@ -20,5 +20,23 @@
 * 基于[rebirth-storage](https://github.com/greengerong/rebirth-storage)的本地存储设置
 * 错误提示页面：404 Not Found、500 Error
 
+## 技术任务
+
+* 升级@Angular/cli、 @Angular/xxx、rebirth-http、rebirth-permission、rebirth-storage、@Rebirth/NG等依赖到最新版本
+* 支持本地和ci单元测试构建体系和以后页面测试
+* 支持本地数据mock机制
+* 支持e2e单元测试基础设施设置和已有页面测试
+* menu选项等支持单独地方单一地方修改
+* 用户需要定制化的配置信息等集中为json或ts文件集中修改
+* 利用Swprecache内置PWA支持
+* 其他平台的扩展（platform-server、electron）
+* 内置ng2代码文档（compodocs）
+
+## 实现要求
+
+* 严格遵守angular.io中ng的StyleGuide规范
+* TypeScript 类型强制要求
+* 覆盖率和tslint遵守
+
 
 
