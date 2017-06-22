@@ -1,27 +1,22 @@
 # RebirthAdmin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
+## 背景
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`RebirthAdmin`是一套基于Angular 2，@angular/cli @Rebirth/NG，Bootstrap-saas的后端管理系统。目标在于方便基于Angular 2的项目快速启动，包含完善的目录结构组织、打包构建、权限、http设置等基础设施。
 
-## Code scaffolding
+## 需求
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+* 基于@angular/cli的项目基础构建（分为core、share、feature module）
+* 路由、lazyload路由配置
+* 登录页面
+* 后台菜单功能（顶部状态栏和侧边栏）
+* @Rebirth/NG组件的基础设置
+* 后台页面的权限设置([rebirth-permission](https://github.com/greengerong/rebirth-permission))
+* 后台API调用基础设置（拦截器，base url）；基于[rebirth-http](https://github.com/greengerong/rebirth-http)
+* 全局Loading设置，每次API请求都需要显示loading（包装@Rebirth/NG的OverlayService）
+* 顶部导航栏退出菜单，并清除`rebirth-permission`等用户信息
+* 基于Bootstrap-saas的全局SCSS配置，目录结构组织；支持重新bootstrap样式和全局样式扩展
+* 基于[rebirth-http](https://github.com/greengerong/rebirth-http)的全局`JWT` token设置
+* 基于[rebirth-storage](https://github.com/greengerong/rebirth-storage)的本地存储设置
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
