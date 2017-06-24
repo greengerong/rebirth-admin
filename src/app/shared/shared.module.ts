@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RebirthUIModule } from 'ng4-rebirth-ui';
 import { RebirthChartModule } from 'rebirth-chart';
 import { PageFooterComponent } from './page-footer';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { PageFooterComponent } from './page-footer';
     RebirthChartModule
   ],
   declarations: [
-    PageFooterComponent
+    PageFooterComponent,
+    PageHeaderComponent
   ],
   exports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { PageFooterComponent } from './page-footer';
     HttpModule,
     RebirthUIModule,
     RebirthChartModule,
-    PageFooterComponent
+    PageFooterComponent,
+    PageHeaderComponent
   ]
 })
 export class SharedModule {

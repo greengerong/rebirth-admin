@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ROUTER_CONFIG } from './public-app.routes';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './home/home.component';
   exports: [],
   declarations: [
     PublicAppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   providers: [],
 })
