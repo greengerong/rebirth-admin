@@ -3,21 +3,19 @@ import { RebirthHttpModule } from 'rebirth-http';
 import { RebirthStorageModule } from 'rebirth-storage';
 import { HttpModule } from '@angular/http';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
-import { RouteReuseStrategy } from '@angular/router';
-import { ThemeService } from './theme';
-
+import { RebirthChartModule } from 'rebirth-chart';
+import { RebirthNGModule } from 'rebirth-ng';
 
 @NgModule({
   imports: [
     HttpModule,
     RebirthHttpModule,
     RebirthStorageModule,
-    RebirthEventSourceModule
+    RebirthEventSourceModule,
+    RebirthNGModule.forRoot(),
+    RebirthChartModule.forRoot(),
   ],
-  providers: [
-    ThemeService
-    // { provide: RouteReuseStrategy, useClass: RebirthRouterReuseStrategy }
-  ],
+  providers: [],
   exports: [
     RebirthHttpModule,
     RebirthStorageModule,
