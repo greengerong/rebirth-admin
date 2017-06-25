@@ -3,7 +3,7 @@ import * as Immutable from 'immutable';
 import { menuBar } from './meun-options';
 
 @Component({
-  selector: 'app-public-app',
+  selector: 'app-manage-app',
   templateUrl: './manage-app.component.html',
   styleUrls: ['./manage-app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
