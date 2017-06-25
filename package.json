@@ -34,8 +34,8 @@
     "rebirth-chart": "0.0.2",
     "rebirth-event-source": "0.0.1",
     "rebirth-http": "0.0.9",
-    "rebirth-permission": "0.0.4",
-    "rebirth-storage": "0.0.7",
+    "rebirth-permission": "0.0.8",
+    "rebirth-storage": "0.0.10",
     "rxjs": "^5.1.0",
     "web-animations-js": "^2.2.2",
     "zone.js": "^0.8.4"
