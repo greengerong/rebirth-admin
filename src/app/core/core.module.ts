@@ -3,7 +3,6 @@ import { RebirthHttpModule } from 'rebirth-http';
 import { RebirthStorageModule } from 'rebirth-storage';
 import { HttpModule } from '@angular/http';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
-import { RebirthChartModule } from 'rebirth-chart';
 import { RebirthNGModule } from 'rebirth-ng';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { RebirthNGModule } from 'rebirth-ng';
     RebirthStorageModule,
     RebirthEventSourceModule,
     RebirthNGModule.forRoot(),
-    RebirthChartModule.forRoot(),
   ],
   providers: [],
   exports: [

@@ -1,20 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import * as Immutable from 'immutable';
+import { Component } from '@angular/core';
 import { menuBar } from './meun-options';
 
 @Component({
   selector: 'app-manage-app',
   templateUrl: './manage-app.component.html',
-  styleUrls: ['./manage-app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./manage-app.component.scss']
 })
-export class ManageAppComponent implements OnInit {
+export class ManageAppComponent {
   menus = menuBar;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,16 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-public-app',
   templateUrl: './public-app.component.html',
-  styleUrls: ['./public-app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./public-app.component.scss']
 })
-export class PublicAppComponent implements OnInit {
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class PublicAppComponent {
 
 }

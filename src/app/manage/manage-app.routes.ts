@@ -6,11 +6,11 @@ export const ROUTER_CONFIG: Routes = [
   {
     path: '',
     component: ManageAppComponent,
-    canActivate: [AuthLoginPermission,],
-    children: [
-
-      // can use role AuthRolePermission
-      // { path: '', pathMatch: 'full', redirectTo: '/manage/home' },
-    ]
+    canActivate: [AuthLoginPermission],
+    // children: [
+    //
+    //   // can use role AuthRolePermission
+    //   // { path: '', pathMatch: 'full', redirectTo: '/manage/home' },
+    // ]
   }
 ];
