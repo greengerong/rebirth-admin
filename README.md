@@ -1,5 +1,7 @@
 # RebirthAdmin
 
+[![Build Status](https://travis-ci.org/greengerong/rebirth-admin.svg?branch=master)](https://travis-ci.org/greengerong/rebirth-admin)
+
 ## 背景
 
 `RebirthAdmin`是一套基于Angular 2，@angular/cli @Rebirth/NG，Bootstrap-saas的后端管理系统。目标在于方便基于Angular 2的项目快速启动，包含完善的目录结构组织、打包构建、权限、http设置等基础设施。
