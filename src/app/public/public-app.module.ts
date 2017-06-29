@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTER_CONFIG } from './public-app.routes';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   imports: [
@@ -16,9 +17,11 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     PublicAppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
 })
 export class PublicAppModule {
 }

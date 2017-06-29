@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { PublicAppComponent } from './public-app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home';
+import { LoginComponent } from './login';
 
 export const ROUTER_CONFIG: Routes = [
   {

@@ -6,6 +6,7 @@ import { RebirthChartModule } from 'rebirth-chart';
 import { PageFooterComponent } from './page-footer';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { RebirthNGModule } from 'rebirth-ng';
+import { RebirthPermissionModule } from 'rebirth-permission';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { RebirthNGModule } from 'rebirth-ng';
     // ReactiveFormsModule,
     HttpModule,
     RebirthNGModule,
+    RebirthPermissionModule,
     RebirthChartModule
   ],
   declarations: [
@@ -25,6 +27,7 @@ import { RebirthNGModule } from 'rebirth-ng';
     FormsModule,
     HttpModule,
     RebirthNGModule,
+    RebirthPermissionModule,
     RebirthChartModule,
     PageFooterComponent,
     PageHeaderComponent
