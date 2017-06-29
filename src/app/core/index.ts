@@ -1,2 +1,2 @@
-export * from './theme';
+export * from './loading';
 export * from './core.module';
