@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles/bootstrap.scss"
       ],
       "scripts": [
         "service-worker-registration.js"
