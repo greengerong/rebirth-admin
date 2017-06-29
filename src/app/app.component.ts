@@ -4,8 +4,7 @@ import { environment } from '../environments/environment.prod';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { RebirthNGConfig } from 'rebirth-ng';
 import { LoadingService } from './core';
-import { Observable } from 'rxjs/Observable';
-import  'rxjs/add/observable/throw';
+import  'rxjs/add/operator/do';
 
 @Component({
   selector: 'app-root',
@@ -36,24 +35,18 @@ export class AppComponent {
       .json()
       .addInterceptor({
         request: request => {
-          this.loadingService.show();
           console.log('interceptor(request)', request);
         },
         response: (stream) => stream.map(response => {
-          this.loadingService.hide();
           console.log('interceptor(response)', response);
           return response;
         })
-          .catch((error) => {
-            this.loadingService.hide();
-            return Observable.throw(error);
-          })
       })
       .addInterceptor({
         request: () => {
-          // loadService.show();
+          this.loadingService.show();
         },
-        // response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
+        response: (stream) => (<any>stream).do(() => null, () => this.loadingService.hide(), () => this.loadingService.hide())
       });
   }
 }
