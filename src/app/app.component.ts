@@ -4,7 +4,7 @@ import { environment } from '../environments/environment.prod';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { RebirthNGConfig } from 'rebirth-ng';
 import { LoadingService } from './core';
-import  'rxjs/add/operator/do';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'app-root',
