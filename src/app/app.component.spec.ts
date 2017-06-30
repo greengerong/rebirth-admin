@@ -1,6 +1,7 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { CoreModule } from './core';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { RebirthNGConfig, RebirthNGModule } from 'rebirth-ng';
@@ -14,6 +15,7 @@ describe('AppComponent', () => {
       imports: [
         RouterModule.forRoot([]),
         RebirthNGModule.forRoot(),
+        CoreModule,
         RebirthHttpModule
       ],
       declarations: [

@@ -9,7 +9,7 @@ import { LoginService } from './login.service';
 export class LoginComponent {
 
   constructor(private loginService: LoginService) {
-    this.login(); // test
+    // this.login(); test
   }
 
   login() {
