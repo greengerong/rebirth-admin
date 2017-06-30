@@ -39,7 +39,7 @@
     "rebirth-chart": "0.0.4",
     "rebirth-event-source": "0.0.1",
     "rebirth-http": "0.0.13",
-    "rebirth-ng": "0.0.15",
+    "rebirth-ng": "0.0.16",
     "rebirth-permission": "0.0.8",
     "rebirth-storage": "0.0.10",
     "rxjs": "^5.4.1",
