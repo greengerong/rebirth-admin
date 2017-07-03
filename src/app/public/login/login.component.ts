@@ -8,12 +8,18 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent {
 
+  form = {
+    email: '',
+    password: '',
+  };
+
   constructor(private loginService: LoginService) {
     // this.login(); test
+    // { email: 'admin@localhost.com', password: 'admin' }
   }
 
   login() {
-    this.loginService.login({ email: 'admin@localhost.com', password: 'admin' })
+    this.loginService.login(this.form)
       .subscribe((user) => console.log(`login success. Get user:`, user));
   }
 }
