@@ -8,12 +8,12 @@
           <label for="username">用户名</label>
         </p>
         <input id="username"
-               name="username"
+               name="email"
                type="text"
                maxlength="20"
                [(ngModel)]="form.email"
-               #usernmae="ngModel"
-               [class.error]="usernmae.errors && usernmae.touched"
+               #email="ngModel"
+               [class.error]="email.errors && email.touched"
                required>
       </div>
       <div class="input-area">
