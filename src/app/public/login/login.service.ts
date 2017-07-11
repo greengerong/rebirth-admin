@@ -2,14 +2,16 @@ import { Observable } from 'rxjs/Observable';
 import { CurrentUser } from '../../shared';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
-import { RebirthHttpProvider, RebirthHttp, POST, Body } from 'rebirth-http';
+import { Body, POST, RebirthHttp, RebirthHttpProvider } from 'rebirth-http';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService extends RebirthHttp {
 
   constructor(protected  http: Http,
               protected rebirthHttpProvider: RebirthHttpProvider,
+              private router: Router,
               private authorizationService: AuthorizationService) {
     super();
   }
@@ -23,6 +25,9 @@ export class LoginService extends RebirthHttp {
         authorizationService.setCurrentUser(user);
         rebirthHttpProvider.headers({ Authorization: user.token });
         return user;
+      })
+      .do(() => {
+        this.router.navigateByUrl('/manage');
       });
   }
 
