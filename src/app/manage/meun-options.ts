@@ -1,7 +1,7 @@
 import { MenuBar } from 'rebirth-ng';
 
 export const menuBar: MenuBar = {
-  logo: 'http://greengerong.com/rebirth/assets/img/wolf2.png',
+  logo: '/assets/icon/favicon-96x96.png',
   title: '破狼博客',
   home: './',
   menus: [
