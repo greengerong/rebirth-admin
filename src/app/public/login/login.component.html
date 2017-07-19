@@ -1,3 +1,39 @@
-<p>
-  login works!
-</p>
+<main>
+  <h1>REBIRTH-ADMIN</h1>
+  <div class="line"></div>
+  <div class="login-body">
+    <form (ngSubmit)="login(form)" novalidate #form="ngForm">
+      <div class="input-area">
+        <p>
+          <label for="username">用户名</label>
+        </p>
+        <input id="username"
+               name="email"
+               type="text"
+               maxlength="20"
+               [(ngModel)]="form.email"
+               #email="ngModel"
+               [class.error]="email.errors && email.touched"
+               required>
+      </div>
+      <div class="input-area">
+        <p>
+          <label for="password">密码</label>
+        </p>
+        <input id="password"
+               name="password"
+               type="password"
+               autocomplete="off"
+               maxlength="20"
+               required
+               #password="ngModel"
+               [class.error]="password.errors && password.touched"
+               [(ngModel)]="form.password">
+      </div>
+      <button id="submit" [disabled]="form.touched && form.invalid" class="btn btn-primary btn-block">登 录</button>
+    </form>
+    <div class="clearfix pull-right">
+      <span>重设密码</span>
+    </div>
+  </div>
+</main>
