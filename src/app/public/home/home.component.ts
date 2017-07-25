@@ -56,39 +56,43 @@ export class HomeComponent implements OnInit {
     // });
 
     const enterPoint = data.find((item) => item.enterPoint);
-    // enterPoint.y = 20;
-    const result = this.constructionPaths(data, enterPoint, 0, 0);
-    console.log(result, 'result result result result');
-    this.pipelines = result.pipelines;
-    this.lines = result.lines;
+    this.constructionPaths(data, enterPoint, 0, 0);
+    console.log(data, 'data-----');
+
+    this.pipelines = data.map((pipeline) => {
+      pipeline.x = 10 + pipeline.xLevel * 120 + pipeline.xLevel * 60;
+      pipeline.y = 20 + pipeline.yLevel * 60 + pipeline.yLevel * 60;
+      return pipeline;
+    });
+
+    this.lines = [].concat(...data.map((pipeline) => {
+      pipeline.triggers = pipeline.triggers || [];
+      return pipeline.triggers.map((trigger) => {
+        const triggerPipeline = data.find((item) => item.id === trigger);
+        return { x1: pipeline.x, y1: pipeline.y, x2: triggerPipeline.x, y2: triggerPipeline.y }
+      });
+    }));
+
+    console.log(this.pipelines, this.lines, 'result result result result');
     this.pipelinesWidth = Math.max(...this.pipelines.map((item) => item.x)) + 120 + 60;
     this.pipelinesHeight = Math.max(...this.pipelines.map((item) => item.y)) + 60;
     console.log(this.pipelines);
   }
 
-  private constructionPaths(data: any[], enterPoint: any, xLevel: number, yLevel: number): any {
+  private constructionPaths(data: any[], enterPoint: any, xLevel: number, yLevel: number) {
     if (!enterPoint) {
       return { pipelines: [], lines: [] };
     }
 
-    enterPoint.x = 10 + xLevel * 120 + xLevel * 60;
-    enterPoint.y = 20 + yLevel * 60 + yLevel * 60;
+    // enterPoint.x = 10 + xLevel * 120 + xLevel * 60;
+    // enterPoint.y = 20 + yLevel * 60 + yLevel * 60;
     enterPoint.xLevel = xLevel;
     enterPoint.yLevel = yLevel;
     enterPoint.triggers = enterPoint.triggers || [];
-    const pipelines = enterPoint.triggers.map((trigger, index) => {
+    enterPoint.triggers.forEach((trigger, index) => {
       const pipeline = data.find((item) => item.id === trigger);
-      const result = this.constructionPaths(data, pipeline, xLevel + 1, index + yLevel);
-      return {
-        pipelines: [...result.pipelines],
-        lines: [{ x1: enterPoint.x, y1: enterPoint.y, x2: pipeline.x, y2: pipeline.y }, ...result.lines]
-      };
+      this.constructionPaths(data, pipeline, xLevel + 1, index + yLevel);
     });
-
-    return {
-      pipelines: [enterPoint].concat(...pipelines.map((item) => item.pipelines)),
-      lines: [].concat(...pipelines.map((item) => item.lines))
-    };
   }
 
   pipelineClick(pipeline) {
