@@ -1,0 +1,34 @@
+<div class="well" class="pipeline-config-container">
+  <ul #dropmenu class="dropdown-menu">
+    <li><a class="clickable" *ngFor="let type of types" (click)="configType(type)">{{type}}</a></li>
+  </ul>
+
+  <svg [attr.width]="pipelinesWidth" [attr.height]="pipelinesHeight" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+    <g *ngFor="let pipeline of pipelines;" class="clickable" (click)="pipelineClick(pipeline)">
+
+      <rect [attr.x]="pipeline.position?.x" [attr.y]="pipeline.position?.y" width="20" height="60" class="left-rect"/>
+      <rect [attr.x]="pipeline.position?.x + 20" [attr.y]="pipeline.position?.y" width="80" height="60"
+            class="content-rect"/>
+      <text [attr.x]="pipeline.position?.x + 30" [attr.y]="pipeline.position?.y + 35"
+            (click)="chooseType($event,pipeline)">
+        {{pipeline.name}}
+      </text>
+      <rect [attr.x]="pipeline.position?.x + 100" [attr.y]="pipeline.position?.y" width="20" height="30"
+            [ngClass]="{'right-rect': !pipeline.triggers?.length, 'disabled': pipeline.triggers?.length}"/>
+      <image [attr.x]="pipeline.position?.x + 100" [attr.y]="pipeline.position?.y" xlink:href="/assets/images/plus.png"
+             height="30" width="20"
+             [ngClass]="{'clickable': !pipeline.triggers?.length, 'disabled': pipeline.triggers?.length}"
+             (click)="addTopPipeline($event,pipeline)"/>
+      <rect [attr.x]="pipeline.position?.x + 100" [attr.y]="pipeline.position?.y + 30" width="20" height="30"
+            class="right-rect"/>
+      <image [attr.x]="pipeline.position?.x + 100" [attr.y]="pipeline.position?.y +30"
+             xlink:href="/assets/images/plus.png" height="30" width="20"
+             (click)="addBottomPipeline($event,pipeline)"/>
+    </g>
+    <g *ngFor="let line of lines">
+      <line [attr.x1]="line.x1 + 120" [attr.y1]="line.y1 + 30"
+            [attr.x2]="line.x2" [attr.y2]="line.y2 + 30" class="pipeline-line"/>
+    </g>
+  </svg>
+</div>

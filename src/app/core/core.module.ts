@@ -6,6 +6,7 @@ import { RebirthEventSourceModule } from 'rebirth-event-source';
 import { RebirthNGModule } from 'rebirth-ng';
 import { AuthorizationService, RebirthPermissionModule } from 'rebirth-permission';
 import { LoadingService } from './loading';
+import { GuidService } from './guid';
 
 @NgModule({
   imports: [
@@ -17,12 +18,13 @@ import { LoadingService } from './loading';
     RebirthPermissionModule.forRoot({ loginPage: '/public/login' }),
   ],
   providers: [
-    LoadingService
+    LoadingService,
+    GuidService
   ],
   exports: [
     RebirthHttpModule,
     RebirthStorageModule,
-    RebirthEventSourceModule
+    RebirthEventSourceModule,
   ]
 })
 export class CoreModule {

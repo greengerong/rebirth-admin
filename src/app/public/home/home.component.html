@@ -1,30 +1,5 @@
 <div class="container">
-  <div class="well" style="overflow-x: auto;max-width: 100%;">
-    <svg [attr.width]="pipelinesWidth" [attr.height]="pipelinesHeight" version="1.1" xmlns="http://www.w3.org/2000/svg">
-
-      <g *ngFor="let pipeline of pipelines; let $index = index; let $first =first;" style="cursor:pointer"
-         (click)="pipelineClick(pipeline)">
-
-        <rect [attr.x]="pipeline.x" [attr.y]="pipeline.y" width="20" height="60"
-              style="fill:#2196f3;stroke-width:1;stroke:#2196f3"/>
-        <rect [attr.x]="pipeline.x + 20" [attr.y]="pipeline.y" width="80" height="60"
-              style="fill:#fff;stroke-width:1; stroke:#ddd"/>
-        <text [attr.x]="pipeline.x + 30" [attr.y]="pipeline.y + 35">{{pipeline.name}}</text>
-        <rect [attr.x]="pipeline.x + 100" [attr.y]="pipeline.y" width="20" height="30"
-              style="stroke-width:1;" [style.fill]="pipeline.triggers?.length ? '#ddd': '#fff'"
-              [style.stroke]="pipeline.triggers?.length ? '#ddd': '#2196f3'"/>
-        <image [attr.x]="pipeline.x + 100" [attr.y]="pipeline.y" xlink:href="/assets/images/plus.png" height="30"
-               width="20" [style.cursor]="pipeline.triggers?.length ? 'not-allowed': 'pointer'"
-               (click)="addTopPipeline($event,pipeline)"/>
-        <rect [attr.x]="pipeline.x + 100" [attr.y]="pipeline.y + 30" width="20" height="30"
-              style="fill:#fff;stroke-width:1; stroke:#2196f3"/>
-        <image [attr.x]="pipeline.x + 100" [attr.y]="pipeline.y +30" xlink:href="/assets/images/plus.png" height="30"
-               width="20" style="cursor:pointer"/>
-      </g>
-      <g *ngFor="let line of lines">
-        <line [attr.x1]="line.x1 + 120" [attr.y1]="line.y1 + 30"
-              [attr.x2]="line.x2" [attr.y2]="line.y2 + 30" style="stroke:#2196f3;stroke-width:1"/>
-      </g>
-    </svg>
-  </div>
+  <app-pipeline-config [types]="types" [(pipelineConfig)]="pipelineConfig"
+                       (configClick)="configClick($event)"></app-pipeline-config>
+  <pre>{{pipelineConfig | json}}</pre>
 </div>

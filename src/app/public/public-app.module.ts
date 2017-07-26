@@ -7,6 +7,7 @@ import { ROUTER_CONFIG } from './public-app.routes';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { PipelineConfigComponent } from './home/pipeline-config/pipeline-config.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { LoginService } from './login/login.service';
     PublicAppComponent,
     HomeComponent,
     LoginComponent,
+    PipelineConfigComponent,
   ],
   providers: [
     LoginService
