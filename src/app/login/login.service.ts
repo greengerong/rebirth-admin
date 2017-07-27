@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { CurrentUser } from '../../shared';
+import { CurrentUser } from '../shared';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { Body, POST, RebirthHttp, RebirthHttpProvider } from 'rebirth-http';
