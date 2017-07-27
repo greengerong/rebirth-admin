@@ -1,6 +1,7 @@
 <div class="well" class="pipeline-config-container">
   <ul #dropmenu class="dropdown-menu">
-    <li><a class="clickable" *ngFor="let type of types" (click)="configType(type)">{{type}}</a></li>
+    <li><a class="clickable" *ngFor="let type of types" [ngClass]="{'active': type== currentPipeline?.name}"
+           (click)="configType(type)">{{type}}</a></li>
   </ul>
 
   <svg [attr.width]="pipelinesWidth" [attr.height]="pipelinesHeight" version="1.1" xmlns="http://www.w3.org/2000/svg">

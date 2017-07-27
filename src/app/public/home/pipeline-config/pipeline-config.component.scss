@@ -7,6 +7,13 @@ $color-disable: #ddd;
   max-width: 100%;
 }
 
+.dropdown-menu {
+  .active {
+    background: $color-primary;
+    color: $color-white;
+  }
+}
+
 .clickable {
   cursor: pointer
 }
