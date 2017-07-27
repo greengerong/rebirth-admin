@@ -9,9 +9,9 @@ export class LoadingService {
   }
 
   show() {
-    this.overlayService.open({
+    setTimeout(() => this.overlayService.open({
       html: `<div class="loading"></div>`
-    });
+    }));
   }
 
   hide() {
