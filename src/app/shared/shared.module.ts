@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RebirthChartModule } from 'rebirth-chart';
 import { PageFooterComponent } from './page-footer';
@@ -11,8 +11,7 @@ import { RebirthPermissionModule } from 'rebirth-permission';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    // ReactiveFormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RebirthNGModule,
     RebirthPermissionModule,
@@ -24,7 +23,7 @@ import { RebirthPermissionModule } from 'rebirth-permission';
   ],
   exports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RebirthNGModule,
     RebirthPermissionModule,

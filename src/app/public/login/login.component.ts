@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from './login.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -8,18 +9,22 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  title = environment.title;
+  loginForm: FormGroup;
 
-  constructor(private loginService: LoginService) {
-    // this.login(); test
-    // { email: 'admin@localhost.com', password: 'admin' }
+  constructor(private fb: FormBuilder, private loginService: LoginService) {
+    this.loginForm = fb.group({
+      'userName': ['', Validators.required],
+      'password': ['', Validators.required]
+    })
   }
 
-  login(form: NgForm) {
-    if (!form.valid) {
+  login() {
+    if (this.loginForm.invalid) {
       return;
     }
 
-    this.loginService.login(form.value)
+    this.loginService.login(this.loginForm.value)
       .subscribe((user) => console.log(`login success. Get user:`, user));
   }
 }

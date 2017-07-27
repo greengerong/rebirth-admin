@@ -1,39 +1,29 @@
-<main>
-  <h1>REBIRTH ADMIN</h1>
-  <div class="line"></div>
+<div class="main">
+  <h1 class="title">Rebirth Admin</h1>
   <div class="login-body">
-    <form (ngSubmit)="login(form)" novalidate #form="ngForm">
-      <div class="input-area">
-        <p>
-          <label for="username">用户名</label>
-        </p>
-        <input id="username"
-               name="email"
-               type="text"
-               maxlength="20"
-               [(ngModel)]="form.email"
-               #email="ngModel"
-               [class.error]="email.errors && email.touched"
-               required>
+    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+      <div class="form-group"
+           [ngClass]="{'has-error': loginForm.controls['userName'].touched && loginForm.controls['userName'].invalid}">
+        <label for="userName">用户名</label>
+        <input id="username" name="userName" type="text" class="form-control input-lg" maxlength="20"
+               formControlName="userName"/>
+        <div class="help-block"
+             *ngIf="loginForm.controls['userName'].touched && loginForm.controls['userName'].hasError('required')">
+          请输入用户名!
+        </div>
       </div>
-      <div class="input-area">
-        <p>
-          <label for="password">密码</label>
-        </p>
-        <input id="password"
-               name="password"
-               type="password"
-               autocomplete="off"
+      <div class="form-group"
+           [ngClass]="{'has-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}">
+        <label for="password">密码</label>
+        <input id="password" name="password" type="password" class="form-control input-lg" autocomplete="off"
                maxlength="20"
-               required
-               #password="ngModel"
-               [class.error]="password.errors && password.touched"
-               [(ngModel)]="form.password">
+               formControlName="password"/>
+        <div class="help-block"
+             *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')">
+          请输入密码!
+        </div>
       </div>
-      <button id="submit" [disabled]="form.touched && form.invalid" class="btn btn-primary btn-block">登 录</button>
+      <button id="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block btn-lg">登 录</button>
     </form>
-    <div class="clearfix pull-right">
-      <span>重设密码</span>
-    </div>
   </div>
-</main>
+</div>
