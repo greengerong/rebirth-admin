@@ -9,7 +9,11 @@ import 'rxjs/add/operator/do';
 @Component({
   selector: 'app-root',
   template: `
-    <router-outlet></router-outlet>
+    <div class="root-router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+    <app-page-footer></app-page-footer>
+
   `,
   styleUrls: ['./app.component.scss']
 })
