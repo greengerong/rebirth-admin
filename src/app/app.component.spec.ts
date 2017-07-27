@@ -1,29 +1,18 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core';
-import { RouterModule } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
-import { RebirthNGConfig, RebirthNGModule } from 'rebirth-ng';
-import { RebirthHttpModule, RebirthHttpProvider } from 'rebirth-http';
+import { RebirthNGConfig } from 'rebirth-ng';
 import { By } from '@angular/platform-browser';
+import { TestBedUtils } from '../test-utils/test-bed-utils';
+import { RebirthHttpProvider } from 'rebirth-http';
 
 describe('AppComponent', () => {
   let fixture;
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([]),
-        RebirthNGModule.forRoot(),
-        CoreModule,
-        RebirthHttpModule
-      ],
+    TestBedUtils.configureTestingModule({
       declarations: [
         AppComponent
       ],
-      providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);

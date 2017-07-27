@@ -6,13 +6,14 @@ import { SharedModule } from '../../shared';
 import { LoginService } from './login.service';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { TestBedUtils } from '../../../test-utils/test-bed-utils';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBedUtils.configureTestingModule({
       imports: [CoreModule, SharedModule, RouterModule.forRoot([])],
       declarations: [LoginComponent],
       providers: [LoginService, { provide: APP_BASE_HREF, useValue: '/' }]

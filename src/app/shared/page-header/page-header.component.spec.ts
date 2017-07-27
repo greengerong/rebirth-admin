@@ -1,16 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageHeaderComponent } from './page-header.component';
+import { TestBedUtils } from '../../../test-utils';
 
 describe('PageHeaderComponent', () => {
   let component: PageHeaderComponent;
   let fixture: ComponentFixture<PageHeaderComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageHeaderComponent ]
-    })
-    .compileComponents();
+    TestBedUtils.configureTestingModule({
+      declarations: [PageHeaderComponent]
+    }, { ignoreShareModule: true })
+      .compileComponents();
   }));
 
   beforeEach(() => {

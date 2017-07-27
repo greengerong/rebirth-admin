@@ -1,15 +1,18 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { GuidService } from './guid.service';
+import { TestBedUtils } from '../../../test-utils/test-bed-utils';
 
 describe('GuidService', () => {
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    TestBedUtils.configureTestingModule({
       providers: [GuidService]
     });
   });
 
   it('should be created', inject([GuidService], (service: GuidService) => {
-    expect(service).toBeTruthy();
+
+    expect(service.newId()).toBeDefined();
   }));
 });
