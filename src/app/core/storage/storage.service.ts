@@ -10,7 +10,7 @@ export class ReStorageService {
     this.storageService.setDefaultStorageType(StorageType.sessionStorage);
   }
 
-  save(key: string, value: string) {
+  save(key: string, value: any) {
     return this.storageService.put({ pool: key, key: ReStorageService.STORAGE_VALUE_KEY }, value);
   }
 
@@ -19,7 +19,7 @@ export class ReStorageService {
   }
 
   remove(key: string) {
-    return this.storageService.remove({ pool: key, key: ReStorageService.STORAGE_VALUE_KEY });
+    return this.storageService.remove({ pool: key });
   }
 
   clear() {
