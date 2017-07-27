@@ -1,9 +1,9 @@
 - request:
-    url: ^/api/login$
+    url: /api/login$
     method: POST
     headers:
       Content-Type: application/json
-    post: '{"email":"admin@localhost.com","password":"admin"}'
+    post: '{"userName":"admin","password":"admin"}'
   response:
     status: 200
     latency: 500
@@ -16,11 +16,11 @@
     file:  admin.response.json
 
 - request:
-    url: ^/api/login$
+    url: /api/login$
     method: POST
     headers:
       Content-Type: application/json
-    post: '{"email":"user@localhost.com","password":"user"}'
+    post: '{"userName":"user","password":"user"}'
   response:
     status: 200
     latency: 500

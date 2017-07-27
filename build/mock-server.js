@@ -9,6 +9,7 @@ const options = {
   tls: 8443,
   admin: 8010,
   quiet: false,
+  mute: false,
   relativeFilesPath: true,
   files: [
     path.join(__dirname, '../mocks/**/*.{yaml,js}')

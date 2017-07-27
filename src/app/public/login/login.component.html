@@ -5,7 +5,7 @@
       <div class="form-group"
            [ngClass]="{'has-error': loginForm.controls['userName'].touched && loginForm.controls['userName'].invalid}">
         <label for="userName">用户名</label>
-        <input id="username" name="userName" type="text" class="form-control input-lg" maxlength="20"
+        <input id="username" name="userName" type="text" class="form-control" maxlength="20"
                formControlName="userName"/>
         <div class="help-block"
              *ngIf="loginForm.controls['userName'].touched && loginForm.controls['userName'].hasError('required')">
@@ -15,7 +15,7 @@
       <div class="form-group"
            [ngClass]="{'has-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}">
         <label for="password">密码</label>
-        <input id="password" name="password" type="password" class="form-control input-lg" autocomplete="off"
+        <input id="password" name="password" type="password" class="form-control" autocomplete="off"
                maxlength="20"
                formControlName="password"/>
         <div class="help-block"
