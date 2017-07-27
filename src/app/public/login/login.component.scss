@@ -1,3 +1,4 @@
+@import "../../../styles/common";
 
 .title {
   text-align: center;
@@ -7,8 +8,13 @@
 
 .main {
   width: 600px;
-  margin: auto;
-  .login-body {
-    padding: 15px 50px;
+  max-width: 90vw;
+  margin: 10% auto 40px auto;
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .login-body {
+      padding: 15px 50px;
+    }
   }
+
 }
