@@ -7,6 +7,7 @@ import { PageFooterComponent } from './page-footer';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { RebirthNGModule } from 'rebirth-ng';
 import { RebirthPermissionModule } from 'rebirth-permission';
+import { FieldErrorComponent } from './field-error/field-error.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { RebirthPermissionModule } from 'rebirth-permission';
   ],
   declarations: [
     PageFooterComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    FieldErrorComponent
   ],
   exports: [
     CommonModule,

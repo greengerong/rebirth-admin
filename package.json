@@ -17,7 +17,8 @@
     "i18n:extract": "ng-xi18n",
     "docs:serve": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b / -d ./compodocs/ --hideGenerator -s",
     "docs:gen": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
-    "github:deploy": "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist"
+    "github:deploy": "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
+    "prepush": "npm test"
   },
   "private": true,
   "dependencies": {
@@ -59,6 +60,7 @@
     "angular-cli-ghpages": "^0.5.0",
     "codelyzer": "^3.1.1",
     "gulp-stubby-server": "^0.2.0",
+    "husky": "^0.14.3",
     "jasmine-core": "^2.6.4",
     "jasmine-spec-reporter": "^4.1.1",
     "karma": "^1.7.0",
