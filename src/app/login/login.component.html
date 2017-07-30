@@ -2,6 +2,10 @@
   <h1 class="title">Rebirth Admin</h1>
   <div class="login-body">
     <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+      <re-alert-box type="danger" *ngIf="showError">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        输入的用户名或者密码无效!(测试账号：admin/admin、user/user)。
+      </re-alert-box>
       <div class="form-group"
            [ngClass]="{'has-error': loginForm.controls['userName'].touched && loginForm.controls['userName'].invalid}">
         <label for="userName">用户名</label>

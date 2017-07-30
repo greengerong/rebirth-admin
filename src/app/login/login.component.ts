@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 export class LoginComponent {
   title = environment.title;
   loginForm: FormGroup;
+  showError: boolean;
 
   constructor(private fb: FormBuilder, private loginService: LoginService) {
     this.loginForm = fb.group({
@@ -25,6 +26,10 @@ export class LoginComponent {
     }
 
     this.loginService.login(this.loginForm.value)
-      .subscribe((user) => console.log(`login success. Get user:`, user));
+      .subscribe(
+        (user) => console.log(`login success. Get user:`, user),
+        () => this.showError = true
+      );
   }
 }
+
