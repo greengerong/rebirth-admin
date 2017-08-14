@@ -3,6 +3,8 @@
   -moz-transition: margin 200ms ease-out;
   -o-transition: margin 200ms ease-out;
   transition: margin 200ms ease-out;
+
+  margin-left: 200px;
 }
 
 @media (min-width: 765px) {
@@ -10,7 +12,7 @@
   .main {
     position: absolute;
     width: calc(100% - 40px);
-    margin-left: 40px;
+    margin-left: 200px;
     float: right;
     padding: 10px 10px 0 10px;
   }
@@ -30,4 +32,13 @@
   .top-menu-bar {
     margin: 0px;
   }
+}
+
+app-menu-bar {
+  left: 0;
+  width: 200px;
+  height: 100%;
+  display: block;
+  min-height: 100%;
+  position: fixed;
 }

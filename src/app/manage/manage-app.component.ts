@@ -36,4 +36,57 @@ export class ManageAppComponent {
     ]
   };
 
+  menuConfig = [
+    {
+      role: 'Admin',
+      data: [
+        {
+          link: '/manage',
+          name: '主页',
+          svgClass: 'fa fa-home',
+          svgPath: '/assets/common/sales.svg',
+        },
+        {
+          link: '',
+          name: '销售配置',
+          isNotActive: true,
+          canCollapse: true,
+          svgPath: '/assets/common/sales.svg',
+          children: [
+            {
+              link: '',
+              name: '厂家商务政策'
+            },
+            {
+              link: '',
+              name: '服务费用管理'
+            }
+          ]
+        },
+        {
+          link: '',
+          name: '后市场配置',
+          isNotActive: true,
+          canCollapse: true,
+          svgPath: '/assets/common/after-sales.svg',
+          children: [
+            {
+              link: '',
+              name: '精品和配件'
+            },
+            {
+              link: '',
+              name: '精品和配件'
+            }
+          ]
+        },
+        {
+          link: '',
+          name: '文档配置',
+          svgPath: '/assets/common/document.svg',
+          children: []
+        }
+      ]
+    }
+  ];
 }

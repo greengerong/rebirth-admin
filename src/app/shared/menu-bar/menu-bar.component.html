@@ -1,0 +1,44 @@
+<ul class="nav nav-pills nav-stacked" *ngIf="configs">
+  <template ngFor let-config [ngForOf]="configs">
+    <template [ngIf]="shouldRenderCell(config.role)">
+      <li class="nav-item nav-row" *ngFor="let data of config.data">
+        <div>
+          <div class="column">
+            <a class="nav-link"
+               (click)="onToggleChildren(data.link)"
+               [routerLink]="data.link"
+               routerLinkActive="active">
+              <i *ngIf="data.svgClass" [class]="data.svgClass"></i>
+              <svg *ngIf="!data.svgClass" [inlineSVG]="data.svgPath" class="nav-icon"></svg>
+            </a>
+          </div>
+          <div class="column">
+            <ul class="nav nav-pills nav-stacked nav-inner">
+              <li class="nav-item">
+                <a class="nav-link"
+                   *ngIf="!data.canCollapse"
+                   [routerLink]="data.link"
+                   [routerLinkActive]="data.isNotActive ? '' : 'active'">{{data.name}}</a>
+
+                <a class="nav-link"
+                   *ngIf="data.canCollapse"
+                   (click)="onToggleChildren(data.link)"
+                   [routerLink]="data.link"
+                   [routerLinkActive]="data.isNotActive ? '' : 'active'">
+                  {{data.name}}
+                  <i class="fa fa-caret-up navigator" aria-hidden="true" *ngIf="shouldShowElement(data.link)"></i>
+                  <i class="fa fa-caret-down navigator" aria-hidden="true" *ngIf="!shouldShowElement(data.link)"></i>
+                </a>
+              </li>
+              <li class="nav-item" *ngFor="let children of data.children; let i = index;">
+                <a class="nav-link"
+                   [routerLink]="children.link"
+                   [routerLinkActive]="'active'">{{children.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </template>
+  </template>
+</ul>

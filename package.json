@@ -45,6 +45,7 @@
     "rebirth-ng": "^0.0.19",
     "rebirth-permission": "^0.0.8",
     "rebirth-storage": "^0.0.10",
+    "ng-inline-svg": "2.2.0",
     "rxjs": "^5.4.1",
     "web-animations-js": "^2.2.2",
     "zone.js": "^0.8.12"
