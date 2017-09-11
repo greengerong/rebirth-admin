@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-app',
@@ -47,41 +48,41 @@ export class ManageAppComponent {
           svgPath: '/assets/common/sales.svg',
         },
         {
-          link: '',
+          link: '/manage/order',
           name: '销售配置',
           isNotActive: true,
           canCollapse: true,
           svgPath: '/assets/common/sales.svg',
           children: [
             {
-              link: '',
-              name: '厂家商务政策'
+              link: '/manage/order',
+              name: '订单管理'
             },
             {
-              link: '',
-              name: '服务费用管理'
+              link: '/manage/order/list',
+              name: '订单列表'
             }
           ]
         },
         {
-          link: '',
+          link: '/manage/user',
           name: '后市场配置',
           isNotActive: true,
           canCollapse: true,
           svgPath: '/assets/common/after-sales.svg',
           children: [
             {
-              link: '',
-              name: '精品和配件'
+              link: '/manage/user',
+              name: '用户管理'
             },
             {
-              link: '',
-              name: '精品和配件'
+              link: '/manage/user/list',
+              name: '用户列表'
             }
           ]
         },
         {
-          link: '',
+          link: '/manage/document',
           name: '文档配置',
           svgPath: '/assets/common/document.svg',
           children: []
@@ -89,4 +90,15 @@ export class ManageAppComponent {
       ]
     }
   ];
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+
+  }
+
+  ngOnInit() {
+    console.log('router: ', this.router);
+    this.router.navigateByUrl('/manage/user')
+  }
+
+
 }

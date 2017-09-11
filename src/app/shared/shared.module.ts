@@ -11,6 +11,7 @@ import { MenuBarService } from './menu-bar/menu-bar.service';
 import { RouterModule } from '@angular/router';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { CollapseDirective } from './collapse/collapse.directive';
 import { FieldErrorComponent } from './field-error/field-error.component';
 
 @NgModule({
@@ -26,8 +27,8 @@ import { FieldErrorComponent } from './field-error/field-error.component';
   ],
   declarations: [
     PageFooterComponent,
-    PageHeaderComponent,
     MenuBarComponent,
+    CollapseDirective,
     PageHeaderComponent,
     FieldErrorComponent
   ],
@@ -41,6 +42,7 @@ import { FieldErrorComponent } from './field-error/field-error.component';
     PageFooterComponent,
     PageHeaderComponent,
     MenuBarComponent,
+    CollapseDirective,
   ],
   providers: [
     MenuBarService,

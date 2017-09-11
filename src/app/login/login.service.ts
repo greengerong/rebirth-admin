@@ -27,6 +27,7 @@ export class LoginService extends RebirthHttp {
         return user;
       })
       .do(() => {
+        console.log('router :', this.router);
         this.router.navigateByUrl('/manage');
       });
   }

@@ -21,14 +21,14 @@ export class MenuBarService {
   }
 
   getUserRole() {
-    console.log(' current :', this.authorizationService.getCurrentUser());
+    // console.log(' current :', this.authorizationService.getCurrentUser());
     return this.authorizationService.getCurrentUser().roles;
   }
 
   hasPrivilege(role) {
     const allowedRole = Array.isArray(role) ? role : [role];
-    console.log('allowedRole, ', allowedRole);
-    console.log('original : ', this.getUserRole());
+    // console.log('allowedRole, ', allowedRole);
+    // console.log('original : ', this.getUserRole());
     return intersection(allowedRole, this.getUserRole()).length > 0;
   }
 

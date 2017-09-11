@@ -14,14 +14,10 @@ export class MenuBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuBarService.initPath();
-    console.log('config :', this.configs);
   }
 
   shouldRenderCell(userRole): boolean {
-
-    let hasPrivilege = this.menuBarService.hasPrivilege(userRole);
-    console.log('should render --> ', hasPrivilege);
-    return hasPrivilege;
+    return this.menuBarService.hasPrivilege(userRole);
   }
 
   onToggleChildren(path): void {
