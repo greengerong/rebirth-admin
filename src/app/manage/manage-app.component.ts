@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './manage-app.component.html',
   styleUrls: ['./manage-app.component.scss']
 })
-export class ManageAppComponent {
+export class ManageAppComponent implements OnInit {
   menus = {
     logo: '/assets/icon/favicon-96x96.png',
     title: '破狼博客',

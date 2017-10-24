@@ -1,6 +1,7 @@
 <app-page-header></app-page-header>
 <!--<re-menu-bar [menuOptions]="menus" [type]="'sidebar'"></re-menu-bar>-->
-<app-menu-bar [configs]="menuConfig"></app-menu-bar>
+<button class="btn btn-primary" (click)="menuBar.toggle()">toggle</button>
+<app-menu-bar #menuBar="menuBar" [configs]="menuConfig"></app-menu-bar>
 
 <div class="container main">
   <!--test-->

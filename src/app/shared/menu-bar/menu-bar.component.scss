@@ -1,7 +1,9 @@
+@import "../../../styles/common";
+
 $link: #566979;
 $blue: #00ADEF;
-$nav-width: 190px;
 $nav-icon-width: 60px;
+$nav-width: 130;
 $light-blue: #E4EFF6;
 
 .fa {
@@ -105,3 +107,24 @@ $light-blue: #E4EFF6;
   max-height: 25px;
   vertical-align: middle;
 }
+
+@mixin menu-toggle($display){
+  .nav-item {
+    .column {
+      &.text-menu {
+        display: $display;
+      }
+    }
+  }
+}
+
+:host {
+  &.open-menu {
+    @include menu-toggle(inline-block);
+  }
+
+  &.hide-menu {
+    @include menu-toggle(none)
+  }
+}
+

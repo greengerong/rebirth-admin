@@ -1,44 +1,28 @@
-.main {
-  -webkit-transition: margin 200ms ease-out;
-  -moz-transition: margin 200ms ease-out;
-  -o-transition: margin 200ms ease-out;
-  transition: margin 200ms ease-out;
-
-  margin-left: 200px;
-}
-
-@media (min-width: 765px) {
-
-  .main {
-    position: absolute;
-    width: calc(100% - 40px);
-    margin-left: 200px;
-    float: right;
-    padding: 10px 10px 0 10px;
-  }
-}
-
-@media (min-width: 1330px) {
-
-  .main {
-    width: calc(100% - 200px);
-    margin-left: 200px;
-    padding: 10px 10px 0 10px;
-  }
-
-}
-
 :host /deep/ {
   .top-menu-bar {
-    margin: 0px;
+    margin: 0;
   }
 }
 
 app-menu-bar {
   left: 0;
-  width: 200px;
+  max-width: 200px;
   height: 100%;
   display: block;
   min-height: 100%;
   position: fixed;
+
+  &+.main{
+    -webkit-transition: margin 200ms ease-out;
+    -moz-transition: margin 200ms ease-out;
+    -o-transition: margin 200ms ease-out;
+    transition: margin 200ms ease-out;
+    margin-left: 80px;
+  }
+
+  &.open-menu{
+    &+.main{
+      margin-left: 200px;
+    }
+  }
 }
