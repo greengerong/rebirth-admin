@@ -12,7 +12,7 @@ app-menu-bar {
   min-height: 100%;
   position: fixed;
 
-  &+.main{
+  & + .main {
     -webkit-transition: margin 200ms ease-out;
     -moz-transition: margin 200ms ease-out;
     -o-transition: margin 200ms ease-out;
@@ -20,9 +20,15 @@ app-menu-bar {
     margin-left: 80px;
   }
 
-  &.open-menu{
-    &+.main{
+  &.open-text-menu {
+    & + .main {
       margin-left: 200px;
+    }
+  }
+
+  &.hide-icon-menu {
+    & + .main {
+      margin-left: 20px;
     }
   }
 }

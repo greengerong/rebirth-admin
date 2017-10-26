@@ -108,7 +108,17 @@ $light-blue: #E4EFF6;
   vertical-align: middle;
 }
 
-@mixin menu-toggle($display){
+@mixin icon-menu-toggle($display){
+  .nav-item {
+    .column {
+      &.icon-menu {
+        display: $display;
+      }
+    }
+  }
+}
+
+@mixin text-menu-toggle($display){
   .nav-item {
     .column {
       &.text-menu {
@@ -119,12 +129,20 @@ $light-blue: #E4EFF6;
 }
 
 :host {
-  &.open-menu {
-    @include menu-toggle(inline-block);
+  &.open-text-menu {
+    @include text-menu-toggle(inline-block);
   }
 
-  &.hide-menu {
-    @include menu-toggle(none)
+  &.hide-text-menu {
+    @include text-menu-toggle(none)
+  }
+
+  &.open-icon-menu {
+    @include icon-menu-toggle(inline-block);
+  }
+
+  &.hide-icon-menu {
+    @include icon-menu-toggle(none);
   }
 }
 

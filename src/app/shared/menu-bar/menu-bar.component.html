@@ -3,7 +3,7 @@
     <template [ngIf]="shouldRenderCell(config.role)">
       <li class="nav-item nav-row" *ngFor="let data of config.data">
         <div>
-          <div class="column">
+          <div class="column icon-menu">
             <a class="nav-link"
                (click)="onToggleChildren(data.link)"
                [routerLink]="data.link"

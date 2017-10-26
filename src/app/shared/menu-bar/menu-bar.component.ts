@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MenuBarService } from './menu-bar.service';
 import { WindowRef } from 'rebirth-ng';
 
@@ -7,22 +7,38 @@ import { WindowRef } from 'rebirth-ng';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.scss'],
   host: {
-    '[class]': 'isOpen ? "open-menu" : "hide-menu"'
+    '[class]': `getClassNames()`,
   },
   exportAs: 'menuBar'
 })
 export class MenuBarComponent implements OnInit {
   static MAX_MIDDLE_SCREEN = 768;
+  static MIN_MIDDLE_SCREEN = 576;
   @Input() configs;
+  @Input() isTextMenuBarOpen: boolean;
 
-  @Input() isOpen: boolean;
+  isIconMenuBarOpen = false;
 
-  constructor(private menuBarService: MenuBarService, windowRef: WindowRef) {
-    this.isOpen = windowRef.innerWidth >= MenuBarComponent.MAX_MIDDLE_SCREEN;
+  constructor(private menuBarService: MenuBarService, private windowRef: WindowRef) {
+  }
+
+  getClassNames() {
+    let classNames = '';
+    classNames += this.isTextMenuBarOpen ? 'open-text-menu' : 'hide-text-menu';
+    classNames += ' ';
+    classNames += this.isIconMenuBarOpen ? 'open-icon-menu' : 'hide-icon-menu';
+    return classNames;
+  }
+
+  @HostListener('window:resize')
+  updateMenuBarStatus() {
+    this.isTextMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MAX_MIDDLE_SCREEN;
+    this.isIconMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MIN_MIDDLE_SCREEN;
   }
 
   ngOnInit(): void {
     this.menuBarService.initPath();
+    this.updateMenuBarStatus();
   }
 
   shouldRenderCell(userRole): boolean {
@@ -38,7 +54,7 @@ export class MenuBarComponent implements OnInit {
   }
 
   toggle() {
-    this.isOpen = !this.isOpen;
+    this.isTextMenuBarOpen = !this.isTextMenuBarOpen;
   }
 
 }
