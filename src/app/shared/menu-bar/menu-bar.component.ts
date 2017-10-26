@@ -55,6 +55,7 @@ export class MenuBarComponent implements OnInit {
 
   toggle() {
     this.isTextMenuBarOpen = !this.isTextMenuBarOpen;
+    this.isIconMenuBarOpen = this.isTextMenuBarOpen;
   }
 
 }
