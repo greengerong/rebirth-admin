@@ -57,7 +57,11 @@ export class MenuBarComponent implements OnInit {
 
   toggle() {
     this.isTextMenuBarOpen = !this.isTextMenuBarOpen;
-    this.isIconMenuBarOpen = this.isTextMenuBarOpen;
+    if (this.windowRef.innerWidth >= MenuBarComponent.MIN_MIDDLE_SCREEN) {
+      this.isIconMenuBarOpen = true;
+    } else {
+      this.isIconMenuBarOpen = this.isTextMenuBarOpen;
+    }
   }
 
 }
