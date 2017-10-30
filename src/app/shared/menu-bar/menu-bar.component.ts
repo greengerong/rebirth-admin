@@ -1,6 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MenuBarService } from './menu-bar.service';
 import { WindowRef } from 'rebirth-ng';
+import { Debounce } from '../debounce/debounce';
 
 @Component({
   selector: 'app-menu-bar',
@@ -31,6 +32,7 @@ export class MenuBarComponent implements OnInit {
   }
 
   @HostListener('window:resize')
+  @Debounce()
   updateMenuBarStatus() {
     this.isTextMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MAX_MIDDLE_SCREEN;
     this.isIconMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MIN_MIDDLE_SCREEN;
