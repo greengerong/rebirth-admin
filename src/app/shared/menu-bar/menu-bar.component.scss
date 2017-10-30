@@ -10,12 +10,16 @@ $light-blue: #E4EFF6;
   font-size: 25px;
 }
 
+.nav-container {
+  border-top: 1px solid $light-blue;
+  border-right: 1px solid $light-blue;
+}
+
 .nav-row .column {
   .nav-inner {
     font-size: 12px;
 
     .nav-item:first-child {
-      border-bottom: 1px solid #e4eff6;
       font-size: 14px;
       cursor: pointer;
     }
