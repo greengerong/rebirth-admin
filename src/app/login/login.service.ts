@@ -37,7 +37,7 @@ export class LoginService extends RebirthHttp {
     this.authorizationService.logout();
   }
 
-  @POST('login')
+  @POST('http://localhost:8000/api/login')
   private innerLogin(@Body body): Observable<CurrentUser> {
     return null;
   }

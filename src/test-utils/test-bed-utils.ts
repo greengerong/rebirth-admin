@@ -5,9 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestBed, TestModuleMetadata } from '@angular/core/testing';
 
 import { Component } from '@angular/core';
-import { MockBackend } from '@angular/http/testing';
-import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
 @Component({
   selector: 'app-test',
   template: ``
@@ -34,14 +34,7 @@ export class TestBedUtils {
     ];
     moduleDef.providers = [...(moduleDef.providers || []),
       { provide: APP_BASE_HREF, useValue: '/' },
-      MockBackend,
-      BaseRequestOptions,
-      {
-        provide: Http,
-        useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) =>
-          new Http(backend, defaultOptions),
-        deps: [MockBackend, BaseRequestOptions]
-      }
+      HttpClientTestingModule
     ];
     moduleDef.declarations = [...(moduleDef.declarations || []), TestComponent];
 

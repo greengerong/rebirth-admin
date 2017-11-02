@@ -7,11 +7,9 @@ import { AuthorizationService, RebirthPermissionModule } from 'rebirth-permissio
 import { LoadingService } from './loading';
 import { GuidService } from './guid';
 import { ReStorageService } from './storage/storage.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    HttpClientModule,
     RebirthHttpModule,
     RebirthStorageModule,
     RebirthEventSourceModule,

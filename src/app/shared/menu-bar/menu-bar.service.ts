@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
-import { Http } from '@angular/http';
 import { intersection, startsWith } from 'lodash';
 import { CurrentUser } from '../../shared';
 import { Router } from '@angular/router';
@@ -11,8 +10,7 @@ export class MenuBarService {
 
   path;
 
-  constructor(protected  http: Http,
-              private router: Router,
+  constructor(private router: Router,
               private authorizationService: AuthorizationService) {
   }
 
