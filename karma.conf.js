@@ -9,36 +9,46 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-istanbul-threshold'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    files: [
-      {pattern: './src/test.ts', watched: false}
-    ],
-    preprocessors: {
-      './src/test.ts': ['@angular/cli']
-    },
-    mime: {
-      'text/x-typescript': ['ts', 'tsx']
-    },
     coverageIstanbulReporter: {
-      reports: ['html', 'lcovonly'],
+      reports: ['html', 'json'],
       fixWebpackSourcePaths: true
+    },
+    istanbulThresholdReporter: {
+      src: 'coverage/coverage-final.json',
+      reporters: ['text'],
+      thresholds: {
+        global: {
+          statements: 80,
+          branches: 80,
+          lines: 80,
+          functions: 80,
+        },
+        each: {
+          statements: 80,
+          branches: 80,
+          lines: 80,
+          functions: 80,
+        },
+      }
     },
     angularCli: {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-      ? ['progress', 'coverage-istanbul']
+      ? ['progress', 'coverage-istanbul', 'istanbul-threshold']
       : ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['Chrome'],
     singleRun: false
   });
 };

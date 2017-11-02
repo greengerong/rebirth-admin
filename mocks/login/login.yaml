@@ -1,8 +1,6 @@
 - request:
     url: /api/login$
     method: POST
-    headers:
-      Content-Type: application/json
     post: '{"userName":"admin","password":"admin"}'
   response:
     status: 200
@@ -18,8 +16,6 @@
 - request:
     url: /api/login$
     method: POST
-    headers:
-      Content-Type: application/json
     post: '{"userName":"user","password":"user"}'
   response:
     status: 200
@@ -35,8 +31,6 @@
 - request:
     url: /api/login$
     method: POST
-    headers:
-      Content-Type: application/json
   response:
     status: 400
     latency: 500

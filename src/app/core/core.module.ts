@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RebirthHttpModule } from 'rebirth-http';
 import { RebirthStorageModule, StorageType } from 'rebirth-storage';
-import { HttpModule } from '@angular/http';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
 import { RebirthNGModule } from 'rebirth-ng';
 import { AuthorizationService, RebirthPermissionModule } from 'rebirth-permission';
 import { LoadingService } from './loading';
 import { GuidService } from './guid';
 import { ReStorageService } from './storage/storage.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    HttpModule,
+    HttpClientModule,
     RebirthHttpModule,
     RebirthStorageModule,
     RebirthEventSourceModule,

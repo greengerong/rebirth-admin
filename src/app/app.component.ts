@@ -1,5 +1,4 @@
 import { Component, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { environment } from '../environments/environment';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { RebirthNGConfig } from 'rebirth-ng';
@@ -21,7 +20,6 @@ export class AppComponent {
 
   constructor(private rebirthNGConfig: RebirthNGConfig,
               private viewContainerRef: ViewContainerRef,
-              private router: ActivatedRoute,
               private loadingService: LoadingService,
               private rebirthHttpProvider: RebirthHttpProvider) {
 
@@ -36,21 +34,9 @@ export class AppComponent {
   private apiSetup() {
     this.rebirthHttpProvider
       .baseUrl(environment.api.host)
-      .json()
       .addInterceptor({
-        request: request => {
-          console.log('interceptor(request)', request);
-        },
-        response: (stream) => stream.map(response => {
-          console.log('interceptor(response)', response);
-          return response;
-        })
-      })
-      .addInterceptor({
-        request: () => {
-          this.loadingService.show();
-        },
-        response: (stream) => (<any>stream).do(() => null, () => this.loadingService.hide(), () => this.loadingService.hide())
+        request: () => this.loadingService.show(),
+        response: () => this.loadingService.hide()
       });
   }
 }

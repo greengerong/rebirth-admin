@@ -28,16 +28,16 @@ export class CollapseDirective implements OnChanges {
   @Output() public expanded: EventEmitter<any> = new EventEmitter();
 
   @HostBinding('style.display')
-  public display: string;
+  display: string;
 
   @HostBinding('attr.aria-hidden')
-  public isCollapsed: boolean = false;
+  isCollapsed = false;
 
   @HostBinding('class.collapse')
-  public isCollapse: boolean = true;
+  isCollapse = true;
 
   @HostBinding('class.collapsing')
-  public isCollapsing: boolean = false;
+  isCollapsing = false;
 
   @HostBinding('class.in')
   @HostBinding('class.show')

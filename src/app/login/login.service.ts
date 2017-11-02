@@ -3,17 +3,17 @@ import { CurrentUser } from '../shared';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { Body, POST, RebirthHttp, RebirthHttpProvider } from 'rebirth-http';
-import { Http } from '@angular/http';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LoginService extends RebirthHttp {
 
-  constructor(protected  http: Http,
+  constructor(protected  http: HttpClient,
               protected rebirthHttpProvider: RebirthHttpProvider,
               private router: Router,
               private authorizationService: AuthorizationService) {
-    super();
+    super(http);
   }
 
   login(loginInfo: { email: string; password: string }): Observable<CurrentUser> {

@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-stacked nav-container" *ngIf="configs">
-  <template ngFor let-config [ngForOf]="configs">
-    <template [ngIf]="shouldRenderCell(config.role)">
+  <ng-template ngFor let-config [ngForOf]="configs">
+    <ng-template [ngIf]="shouldRenderCell(config.role)">
       <li class="nav-item nav-row" *ngFor="let data of config.data">
         <div>
           <div class="column icon-menu">
@@ -40,6 +40,6 @@
           </div>
         </div>
       </li>
-    </template>
-  </template>
+    </ng-template>
+  </ng-template>
 </ul>

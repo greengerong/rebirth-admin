@@ -50,10 +50,18 @@
   "test": {
     "karma": {
       "config": "./karma.conf.js"
+    },
+    "codeCoverage": {
+      "exclude": [
+
+      ]
     }
   },
   "defaults": {
     "styleExt": "scss",
+    "class": {
+      "spec": false
+    },
     "component": {}
   }
 }
