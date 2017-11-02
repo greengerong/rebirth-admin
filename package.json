@@ -43,7 +43,6 @@
     "rebirth-storage": "^0.0.10",
     "rxjs": "^5.4.3",
     "web-animations-js": "^2.3.1",
-    "ng-inline-svg": "2.2.0",
     "zone.js": "^0.8.17"
   },
   "devDependencies": {
