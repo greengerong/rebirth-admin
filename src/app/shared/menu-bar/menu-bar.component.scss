@@ -1,7 +1,6 @@
 @import "../../../styles/common";
 
 $link: #566979;
-$blue: #00ADEF;
 $nav-icon-width: 60px;
 $nav-width: 130;
 $light-blue: #E4EFF6;
@@ -41,7 +40,7 @@ $light-blue: #E4EFF6;
         color: $link;
 
         &.active {
-          background-color: $blue;
+          background-color: $brand-primary;
         }
       }
     }
@@ -59,11 +58,11 @@ $light-blue: #E4EFF6;
       border-left: 1px solid #e4eff6;
 
       .nav-pills .nav-link.active {
-        color: $blue;
+        color: $brand-primary;
         background-color: transparent;
 
         i {
-          color: $blue;
+          color: $brand-primary;
         }
 
         .nav-icon {
@@ -87,7 +86,7 @@ $light-blue: #E4EFF6;
     border-radius: 0;
 
     .nav-icon {
-      color: $blue;
+      color: $brand-primary;
     }
 
     &.active .nav-icon {
@@ -112,7 +111,7 @@ $light-blue: #E4EFF6;
   vertical-align: middle;
 }
 
-@mixin icon-menu-toggle($display){
+@mixin icon-menu-toggle($display) {
   .nav-item {
     .column {
       &.icon-menu {
@@ -122,7 +121,7 @@ $light-blue: #E4EFF6;
   }
 }
 
-@mixin text-menu-toggle($display){
+@mixin text-menu-toggle($display) {
   .nav-item {
     .column {
       &.text-menu {
