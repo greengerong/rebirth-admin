@@ -4,6 +4,7 @@ import { RebirthHttpProvider } from 'rebirth-http';
 import { RebirthNGConfig } from 'rebirth-ng';
 import { LoadingService } from './core';
 import 'rxjs/add/operator/do';
+import { AuthorizationService } from 'rebirth-permission';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import 'rxjs/add/operator/do';
 export class AppComponent {
 
   constructor(private rebirthNGConfig: RebirthNGConfig,
+              private authorizationService: AuthorizationService,
               private viewContainerRef: ViewContainerRef,
               private loadingService: LoadingService,
               private rebirthHttpProvider: RebirthHttpProvider) {
@@ -37,6 +39,14 @@ export class AppComponent {
       .addInterceptor({
         request: () => this.loadingService.show(),
         response: () => this.loadingService.hide()
+      })
+      .addInterceptor({
+        request: (request) => {
+          const currentUser = this.authorizationService.getCurrentUser();
+          if (currentUser) {
+            return request.clone({ setHeaders: { Authorization: currentUser.token } })
+          }
+        }
       });
   }
 }
