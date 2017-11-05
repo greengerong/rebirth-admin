@@ -7,6 +7,7 @@ import { AuthorizationService, RebirthPermissionModule } from 'rebirth-permissio
 import { LoadingService } from './loading';
 import { GuidService } from './guid';
 import { ReStorageService } from './storage/storage.service';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ReStorageService } from './storage/storage.service';
   providers: [
     LoadingService,
     GuidService,
+    LoginService,
     ReStorageService
   ],
   exports: [

@@ -53,7 +53,7 @@
     },
     "codeCoverage": {
       "exclude": [
-
+        "src/app/**"
       ]
     }
   },

@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuBarComponent } from './menu-bar.component';
 import { CollapseDirective } from '../collapse/collapse.directive';
 import { TestBedUtils } from '../../../test-utils/test-bed-utils';
+import { MenuBarService } from './menu-bar.service';
 
 describe('MenuBarComponent', () => {
   let component: MenuBarComponent;
@@ -10,7 +11,8 @@ describe('MenuBarComponent', () => {
 
   beforeEach(async(() => {
     TestBedUtils.configureTestingModule({
-      declarations: [CollapseDirective, MenuBarComponent]
+      declarations: [CollapseDirective, MenuBarComponent],
+      providers: [MenuBarService]
     }, { ignoreShareModule: true })
       .compileComponents();
   }));

@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs/Observable';
-import { CurrentUser } from '../shared';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { Body, POST, RebirthHttp } from 'rebirth-http';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CurrentUser } from '../../shared/model/current-user.model';
 
 @Injectable()
 export class LoginService extends RebirthHttp {

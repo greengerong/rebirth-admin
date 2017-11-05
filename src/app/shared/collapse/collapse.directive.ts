@@ -13,7 +13,7 @@ import {
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
-  selector: '[collapse]',
+  selector: '[appCollapse]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -42,7 +42,7 @@ export class CollapseDirective implements OnChanges {
   @HostBinding('class.in')
   @HostBinding('class.show')
   @HostBinding('attr.aria-expanded')
-  @Input() collapse: boolean;
+  @Input('appCollapse') collapse: boolean;
 
   protected el: ElementRef;
   protected renderer: Renderer2;
