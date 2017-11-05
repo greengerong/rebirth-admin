@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ROUTER_CONFIG } from './login.routes';
+import { HttpHandler } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -12,9 +13,10 @@ import { ROUTER_CONFIG } from './login.routes';
   ],
   exports: [],
   declarations: [LoginComponent],
-  providers: [
-
-  ],
+  providers: [],
 })
 export class LoginModule {
+  constructor(handler: HttpHandler) {
+    console.log(handler, 'LoginModule');
+  }
 }

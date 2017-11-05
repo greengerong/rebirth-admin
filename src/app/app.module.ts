@@ -7,6 +7,7 @@ import { SharedModule } from './shared';
 import { AppComponent } from './app.component';
 import { ROUTER_CONFIG } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpHandler } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,4 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(handler: HttpHandler) {
+    console.log(handler, 'AppModule');
+  }
 }
