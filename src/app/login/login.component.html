@@ -1,0 +1,33 @@
+<div class="main">
+  <h1 class="title">Rebirth Admin</h1>
+  <div class="login-body">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+      <re-alert-box type="danger" *ngIf="showError">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        输入的用户名或者密码无效!(测试账号：admin/admin、user/user)。
+      </re-alert-box>
+      <div class="form-group"
+           [ngClass]="{'has-error': loginForm.controls['userName'].touched && loginForm.controls['userName'].invalid}">
+        <label for="userName">用户名</label>
+        <input id="userName" name="userName" type="text" class="form-control" maxlength="20"
+               formControlName="userName"/>
+        <div class="help-block"
+             *ngIf="loginForm.controls['userName'].touched && loginForm.controls['userName'].hasError('required')">
+          请输入用户名!
+        </div>
+      </div>
+      <div class="form-group"
+           [ngClass]="{'has-error': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}">
+        <label for="password">密码</label>
+        <input id="password" name="password" type="password" class="form-control" autocomplete="off"
+               maxlength="20"
+               formControlName="password"/>
+        <div class="help-block"
+             *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')">
+          请输入密码!
+        </div>
+      </div>
+      <button id="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block btn-lg">登 录</button>
+    </form>
+  </div>
+</div>

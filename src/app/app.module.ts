@@ -1,15 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { RebirthUIModule } from 'ng4-rebirth-ui';
 
 import { CoreModule } from './core';
 import { SharedModule } from './shared';
 import { AppComponent } from './app.component';
-import { RebirthChartModule } from 'rebirth-chart';
 import { ROUTER_CONFIG } from './app.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,13 +14,10 @@ import { ROUTER_CONFIG } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(ROUTER_CONFIG),
-    RebirthUIModule.forRoot(),
-    RebirthChartModule.forRoot(),
+    BrowserAnimationsModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forRoot(ROUTER_CONFIG)
   ],
   providers: [],
   bootstrap: [AppComponent]

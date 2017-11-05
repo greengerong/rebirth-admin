@@ -1,59 +1,52 @@
-import { Component, ViewContainerRef, ElementRef, Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RebirthUIConfig } from 'ng4-rebirth-ui';
-import { ThemeService } from './core';
-import { environment } from '../environments/environment.prod';
+import { Component, ViewContainerRef } from '@angular/core';
+import { environment } from '../environments/environment';
 import { RebirthHttpProvider } from 'rebirth-http';
+import { RebirthNGConfig } from 'rebirth-ng';
+import { LoadingService } from './core';
+import 'rxjs/add/operator/do';
+import { AuthorizationService } from 'rebirth-permission';
 
 @Component({
   selector: 'app-root',
-  template: `<router-outlet></router-outlet>`,
+  template: `
+    <div class="root-router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+    <app-page-footer></app-page-footer>
+
+  `,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
-  constructor(private rebirthConfig: RebirthUIConfig,
+  constructor(private rebirthNGConfig: RebirthNGConfig,
+              private authorizationService: AuthorizationService,
               private viewContainerRef: ViewContainerRef,
-              private router: ActivatedRoute,
-              private themeService: ThemeService,
-              private renderer: Renderer2,
-              private elementRef: ElementRef,
+              private loadingService: LoadingService,
               private rebirthHttpProvider: RebirthHttpProvider) {
 
     this.applicationSetup();
   }
 
   private applicationSetup() {
-    this.rebirthConfig.rootContainer = this.viewContainerRef; // this.rebirthConfig.extend(REBIRTH_UI_I18N_ZHCN); i18n
-    this.themeSetup();
+    this.rebirthNGConfig.rootContainer = this.viewContainerRef; // this.rebirthNGConfig.extend(REBIRTH_UI_I18N_ZHCN); i18n
     this.apiSetup();
   }
 
-  private themeSetup() {
-    this.router.queryParams.subscribe((params: any) => {
-      this.themeService.setupTheme(params.theme, this.renderer, this.elementRef);
-    });
-  }
-
   private apiSetup() {
-
     this.rebirthHttpProvider
       .baseUrl(environment.api.host)
-      .json()
       .addInterceptor({
-        request: request => {
-          console.log('interceptor(request)', request);
-        },
-        response: (stream) => stream.map(response => {
-          console.log('interceptor(response)', response);
-          return response;
-        })
+        request: () => this.loadingService.show(),
+        response: () => this.loadingService.hide()
       })
       .addInterceptor({
-        request: () => {
-          // loadService.show();
-        },
-        // response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
+        request: (request) => {
+          const currentUser = this.authorizationService.getCurrentUser();
+          if (currentUser) {
+            return request.clone({ setHeaders: { Authorization: currentUser.token } })
+          }
+        }
       });
   }
 }

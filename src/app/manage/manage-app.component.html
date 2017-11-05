@@ -1,9 +1,12 @@
-<re-menu-bar [menuOptions]="menus" cssClass="top-menu-bar"></re-menu-bar>
-<re-menu-bar [menuOptions]="menus" [type]="'sidebar'"></re-menu-bar>
+<app-page-header></app-page-header>
+<!--<re-menu-bar [menuOptions]="menus" [type]="'sidebar'"></re-menu-bar>-->
+<button class="btn btn-primary" (click)="menuBar.toggle()">toggle</button>
+<app-menu-bar #menuBar="menuBar" [configs]="menuConfig"></app-menu-bar>
 
 <div class="container main">
   <!--test-->
+  <router-outlet></router-outlet>
 
   <h2>Main content</h2>
-  <page-footer></page-footer>
+  <button class="btn btn-primary">test</button>
 </div>

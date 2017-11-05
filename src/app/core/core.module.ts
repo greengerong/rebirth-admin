@@ -1,34 +1,38 @@
-import { NgModule, SkipSelf, Optional } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RebirthHttpModule } from 'rebirth-http';
-import { RebirthStorageModule } from 'rebirth-storage';
-import { HttpModule } from '@angular/http';
+import { RebirthStorageModule, StorageType } from 'rebirth-storage';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
-import { RouteReuseStrategy } from '@angular/router';
-import { ThemeService } from './theme';
-
+import { RebirthNGModule } from 'rebirth-ng';
+import { AuthorizationService, RebirthPermissionModule } from 'rebirth-permission';
+import { LoadingService } from './loading';
+import { GuidService } from './guid';
+import { ReStorageService } from './storage/storage.service';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   imports: [
-    HttpModule,
     RebirthHttpModule,
     RebirthStorageModule,
-    RebirthEventSourceModule
+    RebirthEventSourceModule,
+    RebirthNGModule.forRoot(),
+    RebirthPermissionModule.forRoot({ loginPage: '/public/login' }),
   ],
   providers: [
-    ThemeService
-    // { provide: RouteReuseStrategy, useClass: RebirthRouterReuseStrategy }
+    LoadingService,
+    GuidService,
+    LoginService,
+    ReStorageService
   ],
   exports: [
-    RebirthHttpModule,
-    RebirthStorageModule,
-    RebirthEventSourceModule
   ]
 })
 export class CoreModule {
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule, authorizationService: AuthorizationService) {
     if (parentModule) {
-      throw new Error(
-        'CoreModule is already loaded. Import it in the AppModule only');
+      throw new Error('CoreModule is already loaded. Import it in the AppModule only');
     }
+    // authorization storage way(sessionStorage, localStorage, memory)
+    authorizationService.setStorageType(StorageType.sessionStorage);
   }
 }

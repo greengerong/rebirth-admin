@@ -1,4 +1,7 @@
-
-export const environment = Object.assign({}, require('./common.json'), require('./development.json'), {
-  production: false
-});
+export const environment = {
+  ...require('./common.json'),
+  ...require('./development.json'),
+  ...{
+    production: false
+  }
+};

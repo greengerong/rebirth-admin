@@ -1,28 +1,21 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { BrowserModule } from '@angular/platform-browser';
 import { PageFooterComponent } from './index';
+import { TestBedUtils } from '../../../test-utils/test-bed-utils';
+import { By } from '@angular/platform-browser';
 
-describe('Article aside Component', () => {
+describe('Page footer Component', () => {
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        BrowserModule,
-      ],
+    TestBedUtils.configureTestingModule({
       declarations: [PageFooterComponent],
-      providers: []
-    });
+    }, { ignoreShareModule: true });
   });
 
 
-  it('should contain a number', inject([], () => {
+  it('should contain a footer text', () => {
 
     const fixture = TestBed.createComponent(PageFooterComponent);
-    fixture.whenStable().then(() => {
-      fixture.detectChanges();
-      const elm: HTMLElement = fixture.nativeElement;
-      const linkElms = elm.querySelectorAll('.center-block');
-      expect(linkElms[0].textContent).toContain('2016');
-    });
-  }));
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('.footer')).nativeElement.textContent.length).toBeGreaterThan(0);
+  });
 });

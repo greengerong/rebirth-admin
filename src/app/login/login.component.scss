@@ -1,0 +1,21 @@
+@import "../../styles/common";
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #666;
+  padding-bottom: 2rem;
+}
+
+.main {
+  width: 600px;
+  max-width: 90vw;
+  margin: 10% auto 40px auto;
+
+  @media (min-width: $screen-sm-min) {
+    .login-body {
+      padding: 15px 50px;
+    }
+  }
+
+}

@@ -1,30 +1,43 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RebirthUIModule } from 'ng4-rebirth-ui';
-import { RebirthChartModule } from 'rebirth-chart';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PageFooterComponent } from './page-footer';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { RebirthNGModule } from 'rebirth-ng';
+import { RebirthPermissionModule } from 'rebirth-permission';
+import { MenuBarService } from './menu-bar/menu-bar.service';
+import { RouterModule } from '@angular/router';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { CollapseDirective } from './collapse/collapse.directive';
+import { FieldErrorComponent } from './field-error/field-error.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    // ReactiveFormsModule,
-    HttpModule,
-    RebirthUIModule,
-    RebirthChartModule
+    RouterModule,
+    ReactiveFormsModule,
+    RebirthNGModule,
+    RebirthPermissionModule,
   ],
   declarations: [
-    PageFooterComponent
+    PageFooterComponent,
+    CollapseDirective,
+    MenuBarComponent,
+    PageHeaderComponent,
+    FieldErrorComponent
   ],
   exports: [
     CommonModule,
-    FormsModule,
-    HttpModule,
-    RebirthUIModule,
-    RebirthChartModule,
-    PageFooterComponent
+    ReactiveFormsModule,
+    RebirthNGModule,
+    RebirthPermissionModule,
+    PageFooterComponent,
+    PageHeaderComponent,
+    CollapseDirective,
+    MenuBarComponent,
+  ],
+  providers: [
+    MenuBarService,
   ]
 })
 export class SharedModule {

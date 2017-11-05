@@ -1,0 +1,151 @@
+@import "../../../styles/common";
+
+$link: #566979;
+$nav-icon-width: 60px;
+$nav-width: 130;
+$light-blue: #E4EFF6;
+
+.fa {
+  font-size: 25px;
+}
+
+.nav-container {
+  border-top: 1px solid $light-blue;
+  border-right: 1px solid $light-blue;
+}
+
+.nav-row .column {
+  .nav-inner {
+    font-size: 12px;
+
+    .nav-item:first-child {
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}
+
+.nav-row {
+  .column {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+
+    .nav-pills {
+      .nav-item {
+        border: none;
+      }
+
+      .nav-link {
+        color: $link;
+
+        &.active {
+          background-color: $brand-primary;
+        }
+      }
+    }
+
+    &:first-child {
+      width: $nav-icon-width;
+
+      .nav-link {
+        text-align: center;
+      }
+    }
+
+    &:last-child {
+      width: 129px;
+      border-left: 1px solid #e4eff6;
+
+      .nav-pills .nav-link.active {
+        color: $brand-primary;
+        background-color: transparent;
+
+        i {
+          color: $brand-primary;
+        }
+
+        .nav-icon {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+
+.nav-pills {
+  .nav-item {
+    border-bottom: 1px solid #e4eff6;
+    margin-top: 0;
+  }
+
+  .nav-link {
+    padding: 0 16px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 0;
+
+    .nav-icon {
+      color: $brand-primary;
+    }
+
+    &.active .nav-icon {
+      color: #fff;
+    }
+  }
+}
+
+.navigator {
+  color: #b1cce7;
+  height: 20px;
+  float: right;
+  margin-top: 15px;
+  line-height: 20px;
+}
+
+.nav-icon {
+  min-width: 18px;
+  max-width: 25px;
+  min-height: 18px;
+  max-height: 25px;
+  vertical-align: middle;
+}
+
+@mixin icon-menu-toggle($display) {
+  .nav-item {
+    .column {
+      &.icon-menu {
+        display: $display;
+      }
+    }
+  }
+}
+
+@mixin text-menu-toggle($display) {
+  .nav-item {
+    .column {
+      &.text-menu {
+        display: $display;
+      }
+    }
+  }
+}
+
+:host {
+  &.open-text-menu {
+    @include text-menu-toggle(inline-block);
+  }
+
+  &.hide-text-menu {
+    @include text-menu-toggle(none)
+  }
+
+  &.open-icon-menu {
+    @include icon-menu-toggle(inline-block);
+  }
+
+  &.hide-icon-menu {
+    @include icon-menu-toggle(none);
+  }
+}
+
