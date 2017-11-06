@@ -20,8 +20,6 @@ export class ManageAppComponent {
         {
           link: '/manage/order',
           name: '销售配置',
-          isNotActive: true,
-          canCollapse: true,
           svgPath: '/assets/common/sales.svg',
           children: [
             {
@@ -37,8 +35,6 @@ export class ManageAppComponent {
         {
           link: '/manage/user',
           name: '后市场配置',
-          isNotActive: true,
-          canCollapse: true,
           svgPath: '/assets/common/after-sales.svg',
           children: [
             {
