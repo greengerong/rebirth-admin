@@ -8,6 +8,7 @@ export const ROUTER_CONFIG: Routes = [
   {
     path: '',
     component: ManageAppComponent,
+    canActivate: [AuthLoginPermission],
     children: [
 
       // can use role AuthRolePermission

@@ -14,7 +14,7 @@ import { LoadingService } from './loading/loading.service';
     RebirthStorageModule,
     RebirthEventSourceModule,
     RebirthNGModule.forRoot(),
-    RebirthPermissionModule.forRoot({ loginPage: '/public/login' }),
+    RebirthPermissionModule.forRoot({ loginPage: '/login' }),
   ],
   providers: [
     LoadingService,
