@@ -1,4 +1,4 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RebirthHttpModule } from 'rebirth-http';
 import { RebirthStorageModule, StorageType } from 'rebirth-storage';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
@@ -25,10 +25,7 @@ import { LoadingService } from './loading/loading.service';
 })
 export class CoreModule {
 
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule, authorizationService: AuthorizationService) {
-    if (parentModule) {
-      throw new Error('CoreModule is already loaded. Import it in the AppModule only');
-    }
+  constructor(authorizationService: AuthorizationService) {
     // authorization storage way(sessionStorage, localStorage, memory)
     authorizationService.setStorageType(StorageType.sessionStorage);
   }

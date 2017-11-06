@@ -53,7 +53,11 @@
     },
     "codeCoverage": {
       "exclude": [
-        "src/app/**"
+        "src/test-utils/**",
+        "src/app/login/**",
+        "src/app/shared/collapse/**",
+        "src/app/shared/debounce/**",
+        "src/app/shared/menu-bar/**"
       ]
     }
   },

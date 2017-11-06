@@ -9,12 +9,22 @@ export class LoadingService {
   }
 
   show() {
-    setTimeout(() => this.overlayService.open({
-      html: `<div class="loading"></div>`
+    return new Promise<LoadingService>((resolve => {
+      setTimeout(() => {
+        this.overlayService.open({
+          html: `<div class="loading"></div>`
+        });
+        resolve(this);
+      });
     }));
   }
 
   hide() {
-    this.overlayService.close();
+    return new Promise<LoadingService>((resolve => {
+      setTimeout(() => {
+        this.overlayService.close();
+        resolve(this);
+      });
+    }));
   }
 }

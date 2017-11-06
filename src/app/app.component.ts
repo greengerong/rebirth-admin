@@ -5,6 +5,8 @@ import { RebirthNGConfig } from 'rebirth-ng';
 import 'rxjs/add/operator/do';
 import { AuthorizationService } from 'rebirth-permission';
 import { LoadingService } from './core/loading/loading.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +25,7 @@ export class AppComponent {
               private authorizationService: AuthorizationService,
               private viewContainerRef: ViewContainerRef,
               private loadingService: LoadingService,
+              private router: Router,
               private rebirthHttpProvider: RebirthHttpProvider) {
 
     this.applicationSetup();
@@ -37,8 +40,12 @@ export class AppComponent {
     this.rebirthHttpProvider
       .baseUrl(environment.api.host)
       .addInterceptor({
-        request: () => this.loadingService.show(),
-        response: () => this.loadingService.hide()
+        request: () => {
+          this.loadingService.show();
+        },
+        response: () => {
+          this.loadingService.hide();
+        }
       })
       .addInterceptor({
         request: (request) => {
@@ -46,6 +53,11 @@ export class AppComponent {
           if (currentUser) {
             return request.clone({ setHeaders: { Authorization: currentUser.token } });
           }
+        }
+      })
+      .addResponseErrorInterceptor((res: HttpErrorResponse) => {
+        if ([401, 403].indexOf(res.status) !== -1) {
+          this.router.navigateByUrl('/login');
         }
       });
   }

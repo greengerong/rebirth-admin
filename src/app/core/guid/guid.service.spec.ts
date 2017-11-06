@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { inject } from '@angular/core/testing';
 
 import { GuidService } from './guid.service';
 import { TestBedUtils } from '../../../test-utils/test-bed-utils';
