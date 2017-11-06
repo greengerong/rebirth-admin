@@ -12,7 +12,7 @@ export class ManageAppComponent {
       role: 'Admin',
       data: [
         {
-          link: '/manage',
+          link: '/manage/home',
           name: '主页',
           svgClass: 'fa fa-home',
           svgPath: '/assets/common/sales.svg',
