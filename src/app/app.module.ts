@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { CoreModule } from './core';
@@ -7,7 +7,7 @@ import { SharedModule } from './shared';
 import { AppComponent } from './app.component';
 import { ROUTER_CONFIG } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpHandler } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { HttpHandler } from '@angular/common/http';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(handler: HttpHandler) {
-    console.log(handler, 'AppModule');
+  constructor(@Inject(HTTP_INTERCEPTORS) httpInterceptor: HttpInterceptor[]) {
+    console.log(httpInterceptor, 'AppModule');
   }
 }

@@ -21,9 +21,12 @@ import { LoginService } from './login/login.service';
     LoadingService,
     GuidService,
     LoginService,
-    ReStorageService
+    ReStorageService,
   ],
   exports: [
+    RebirthHttpModule,
+    RebirthStorageModule,
+    RebirthEventSourceModule
   ]
 })
 export class CoreModule {
