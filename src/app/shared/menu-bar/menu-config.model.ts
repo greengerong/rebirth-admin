@@ -7,6 +7,5 @@ export interface MenuItem {
 }
 
 export interface MenuConfig {
-  role: string;
-  data: MenuItem[];
+  menus: MenuItem[];
 }

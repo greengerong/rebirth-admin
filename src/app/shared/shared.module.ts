@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { RebirthNGModule } from 'rebirth-ng';
 import { RebirthPermissionModule } from 'rebirth-permission';
-import { MenuBarService } from './menu-bar/menu-bar.service';
 import { RouterModule } from '@angular/router';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { CollapseDirective } from './collapse/collapse.directive';
@@ -36,9 +35,7 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     CollapseDirective,
     MenuBarComponent,
   ],
-  providers: [
-    MenuBarService,
-  ]
+  providers: []
 })
 export class SharedModule {
 

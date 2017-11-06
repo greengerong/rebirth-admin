@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ROUTER_CONFIG } from './manage-app.routes';
 import { OrderMockComponent } from './order-mock/order-mock.component';
 import { UserMockComponent } from './user-mock/user-mock.component';
+import { MenuService } from './menu.service';
 
 @NgModule({
   imports: [
@@ -18,7 +19,9 @@ import { UserMockComponent } from './user-mock/user-mock.component';
     OrderMockComponent,
     UserMockComponent,
   ],
-  providers: [],
+  providers: [
+    MenuService
+  ],
 })
 export class ManageAppModule {
 

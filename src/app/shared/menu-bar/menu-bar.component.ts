@@ -1,7 +1,8 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { MenuBarService } from './menu-bar.service';
 import { WindowRef } from 'rebirth-ng';
 import { Debounce } from '../debounce/debounce';
+import { MenuConfig } from './menu-config.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-bar',
@@ -15,20 +16,17 @@ import { Debounce } from '../debounce/debounce';
 export class MenuBarComponent implements OnInit {
   static MAX_MIDDLE_SCREEN = 768;
   static MIN_MIDDLE_SCREEN = 576;
-  @Input() configs;
+  @Input() menuConfig: MenuConfig;
   @Input() isTextMenuBarOpen: boolean;
-
   isIconMenuBarOpen = false;
 
-  constructor(private menuBarService: MenuBarService, private windowRef: WindowRef) {
+  constructor(private router: Router, private windowRef: WindowRef) {
   }
 
   getClassNames() {
-    let classNames = '';
-    classNames += this.isTextMenuBarOpen ? 'open-text-menu' : 'hide-text-menu';
-    classNames += ' ';
-    classNames += this.isIconMenuBarOpen ? 'open-icon-menu' : 'hide-icon-menu';
-    return classNames;
+    const textMenuClass = this.isTextMenuBarOpen ? 'open-text-menu' : 'hide-text-menu';
+    const iconMenuClass = this.isIconMenuBarOpen ? 'open-icon-menu' : 'hide-icon-menu';
+    return `${textMenuClass} ${iconMenuClass}`;
   }
 
   @HostListener('window:resize')
@@ -39,20 +37,11 @@ export class MenuBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.menuBarService.initPath();
     this.updateMenuBarStatus();
   }
 
-  shouldRenderCell(userRole): boolean {
-    return this.menuBarService.hasPrivilege(userRole);
-  }
-
-  onToggleChildren(path): void {
-    this.menuBarService.path = path;
-  }
-
   shouldShowElement(path): boolean {
-    return this.menuBarService.isStartWithCurrentPath(path);
+    return this.router.url.indexOf(path) !== -1;
   }
 
   toggle() {
