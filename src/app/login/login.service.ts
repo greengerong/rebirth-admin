@@ -4,7 +4,7 @@ import { AuthorizationService } from 'rebirth-permission';
 import { Body, POST, RebirthHttp } from 'rebirth-http';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { CurrentUser } from '../../shared/model/current-user.model';
+import { CurrentUser } from '../shared/model/current-user.model';
 
 @Injectable()
 export class LoginService extends RebirthHttp {

@@ -1,10 +1,10 @@
-import { Inject, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { LoginComponent } from './login.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ROUTER_CONFIG } from './login.routes';
-import { HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
+import { LoginService } from './login.service';
 
 @NgModule({
   imports: [
@@ -13,10 +13,10 @@ import { HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
   ],
   exports: [],
   declarations: [LoginComponent],
-  providers: [],
+  providers: [
+    LoginService
+  ],
 })
 export class LoginModule {
-  constructor(@Inject(HTTP_INTERCEPTORS) httpInterceptor: HttpInterceptor[]) {
-    console.log(httpInterceptor, 'LoginModule');
-  }
+
 }
