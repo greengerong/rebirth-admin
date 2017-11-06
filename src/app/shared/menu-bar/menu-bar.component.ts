@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Renderer2 } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { WindowRef } from 'rebirth-ng';
 import { MenuConfig } from './menu-config.model';
 import { Router } from '@angular/router';
@@ -12,13 +12,16 @@ import { Router } from '@angular/router';
   },
   exportAs: 'menuBar'
 })
-export class MenuBarComponent implements OnInit {
+export class MenuBarComponent implements OnInit, OnDestroy {
+
+
   static MAX_MIDDLE_SCREEN = 768;
   static MIN_MIDDLE_SCREEN = 576;
   @Input() menuConfig: MenuConfig;
   @Input() isTextMenuBarOpen: boolean;
   isIconMenuBarOpen = false;
-  positionChange = new EventEmitter<any>();
+  windowResize = new EventEmitter<any>();
+  listens: any[] = [];
 
   constructor(private router: Router, private renderer: Renderer2, private windowRef: WindowRef) {
   }
@@ -36,11 +39,13 @@ export class MenuBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateMenuBarStatus();
-    this.positionChange
+    this.windowResize
       .debounceTime(200)
       .distinctUntilChanged()
       .subscribe(() => this.updateMenuBarStatus());
-    this.renderer.listen('window', 'resize', ($event) => this.positionChange.emit($event));
+
+    this.listens.push(this.renderer.listen('window', 'resize',
+      ($event) => this.windowResize.emit($event)));
   }
 
   shouldShowElement(path): boolean {
@@ -54,6 +59,10 @@ export class MenuBarComponent implements OnInit {
     } else {
       this.isIconMenuBarOpen = this.isTextMenuBarOpen;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.listens.forEach(listen => listen());
   }
 
 }
