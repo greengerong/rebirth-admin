@@ -1,8 +1,6 @@
 import { inject } from '@angular/core/testing';
 import { ReStorageService } from './storage.service';
 import { TestBedUtils } from '../../../test-utils/test-bed-utils';
-import { StorageService } from 'rebirth-storage';
-
 
 describe('ReStorageService', () => {
   beforeEach(() => {
