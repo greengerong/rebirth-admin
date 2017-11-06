@@ -17,7 +17,7 @@ export class LoginComponent {
     this.loginForm = fb.group({
       'userName': ['', Validators.required],
       'password': ['', Validators.required]
-    })
+    });
   }
 
   login() {

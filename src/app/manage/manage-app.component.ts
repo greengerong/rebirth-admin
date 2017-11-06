@@ -91,13 +91,12 @@ export class ManageAppComponent implements OnInit {
     }
   ];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router) {
 
   }
 
   ngOnInit() {
-    console.log('router: ', this.router);
-    this.router.navigateByUrl('/manage/user')
+    this.router.navigateByUrl('/manage/user');
   }
 
 
