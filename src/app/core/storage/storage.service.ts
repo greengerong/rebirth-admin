@@ -14,8 +14,8 @@ export class ReStorageService {
     return this.storageService.put({ pool: key, key: ReStorageService.STORAGE_VALUE_KEY }, value);
   }
 
-  get(key: string) {
-    return this.storageService.get({ pool: key, key: ReStorageService.STORAGE_VALUE_KEY });
+  get<T>(key: string): T {
+    return this.storageService.get({ pool: key, key: ReStorageService.STORAGE_VALUE_KEY }) as T;
   }
 
   remove(key: string) {
