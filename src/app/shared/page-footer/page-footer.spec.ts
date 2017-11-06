@@ -13,7 +13,6 @@ describe('Page footer Component', () => {
 
 
   it('should contain a footer text', () => {
-
     const fixture = TestBed.createComponent(PageFooterComponent);
     fixture.detectChanges();
     expect(fixture.debugElement.query(By.css('.footer')).nativeElement.textContent.length).toBeGreaterThan(0);

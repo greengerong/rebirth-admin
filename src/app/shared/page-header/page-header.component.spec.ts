@@ -20,7 +20,7 @@ describe('PageHeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render page header', () => {
+    expect(fixture.debugElement.nativeElement.textContent).toContain('page-header works');
   });
 });
