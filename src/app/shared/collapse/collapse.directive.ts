@@ -1,12 +1,10 @@
 import {
   Directive,
   ElementRef,
-  EventEmitter,
   forwardRef,
   HostBinding,
   Input,
   OnChanges,
-  Output,
   Renderer2,
   SimpleChanges
 } from '@angular/core';
@@ -24,39 +22,27 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   host: { '[class.collapse]': 'true' }
 })
 export class CollapseDirective implements OnChanges {
-  @Output() public collapsed: EventEmitter<any> = new EventEmitter();
-  @Output() public expanded: EventEmitter<any> = new EventEmitter();
-
   @HostBinding('style.display')
   display: string;
-
-  @HostBinding('attr.aria-hidden')
-  isCollapsed = false;
-
-  @HostBinding('class.collapse')
-  isCollapse = true;
-
-  @HostBinding('class.collapsing')
-  isCollapsing = false;
 
   @HostBinding('class.in')
   @HostBinding('class.show')
   @HostBinding('attr.aria-expanded')
   @Input('appCollapse') collapse: boolean;
 
-  protected el: ElementRef;
+  protected elementRef: ElementRef;
   protected renderer: Renderer2;
 
-  public constructor(_el: ElementRef, _renderer: Renderer2) {
-    this.el = _el;
-    this.renderer = _renderer;
+  constructor(elementRef: ElementRef, renderer2: Renderer2) {
+    this.elementRef = elementRef;
+    this.renderer = renderer2;
   }
 
   ngOnChanges(changes: SimpleChanges) {
     this.toggle();
   }
 
-  public toggle(): void {
+  toggle(): void {
     if (this.collapse) {
       this.hide();
     } else {
@@ -64,30 +50,15 @@ export class CollapseDirective implements OnChanges {
     }
   }
 
-  public hide(): void {
-    this.isCollapse = false;
-    this.isCollapsing = true;
-
+  hide(): void {
     this.collapse = false;
-    this.isCollapsed = true;
-
-    this.isCollapse = true;
-    this.isCollapsing = false;
-
     this.display = 'none';
   }
 
-  public show(): void {
-    this.isCollapse = false;
-    this.isCollapsing = true;
-
+  show(): void {
     this.collapse = true;
-    this.isCollapsed = false;
-
     this.display = 'block';
-    this.isCollapse = true;
-    this.isCollapsing = false;
-    this.renderer.setStyle(this.el.nativeElement, 'overflow', 'visible');
-    this.renderer.setStyle(this.el.nativeElement, 'height', 'auto');
+    this.renderer.setStyle(this.elementRef.nativeElement, 'overflow', 'visible');
+    this.renderer.setStyle(this.elementRef.nativeElement, 'height', 'auto');
   }
 }

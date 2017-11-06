@@ -1,6 +1,5 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Renderer2 } from '@angular/core';
 import { WindowRef } from 'rebirth-ng';
-import { Debounce } from '../debounce/debounce';
 import { MenuConfig } from './menu-config.model';
 import { Router } from '@angular/router';
 
@@ -19,8 +18,9 @@ export class MenuBarComponent implements OnInit {
   @Input() menuConfig: MenuConfig;
   @Input() isTextMenuBarOpen: boolean;
   isIconMenuBarOpen = false;
+  positionChange = new EventEmitter<any>();
 
-  constructor(private router: Router, private windowRef: WindowRef) {
+  constructor(private router: Router, private renderer: Renderer2, private windowRef: WindowRef) {
   }
 
   getClassNames() {
@@ -29,8 +29,6 @@ export class MenuBarComponent implements OnInit {
     return `${textMenuClass} ${iconMenuClass}`;
   }
 
-  @HostListener('window:resize')
-  @Debounce()
   updateMenuBarStatus() {
     this.isTextMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MAX_MIDDLE_SCREEN;
     this.isIconMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MIN_MIDDLE_SCREEN;
@@ -38,6 +36,11 @@ export class MenuBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateMenuBarStatus();
+    this.positionChange
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .subscribe(() => this.updateMenuBarStatus());
+    this.renderer.listen('window', 'resize', ($event) => this.positionChange.emit($event));
   }
 
   shouldShowElement(path): boolean {
