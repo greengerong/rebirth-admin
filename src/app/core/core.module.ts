@@ -4,9 +4,9 @@ import { RebirthStorageModule, StorageType } from 'rebirth-storage';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
 import { RebirthNGModule } from 'rebirth-ng';
 import { AuthorizationService, RebirthPermissionModule } from 'rebirth-permission';
-import { LoadingService } from './loading';
-import { GuidService } from './guid';
 import { ReStorageService } from './storage/storage.service';
+import { GuidService } from './guid/guid.service';
+import { LoadingService } from './loading/loading.service';
 
 @NgModule({
   imports: [
