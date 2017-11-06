@@ -19,7 +19,7 @@ export class MenuService {
     return Observable.of({
       menus: [
         {
-          link: '/manage',
+          link: '/manage/home',
           name: '主页',
           svgClass: 'fa fa-home',
           svgPath: '/assets/common/sales.svg',

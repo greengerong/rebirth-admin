@@ -3,7 +3,6 @@
     <div>
       <div class="column icon-menu">
         <a class="nav-link"
-           (click)="onToggleChildren(data.link)"
            [routerLink]="data.link"
            routerLinkActive="active">
           <i *ngIf="data.svgClass" [class]="data.svgClass"></i>
