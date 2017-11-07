@@ -31,9 +31,10 @@ export class LoginPage extends RebirthPage {
     return element(by.id('submit')).click();
   }
 
-  withDefault() {
-    this.username('admin')
-      .password('admin')
+  login(form?: { username: 'admin', password: 'admin' }) {
+    browser.get('/');
+    this.username(form.username)
+      .password(form.password)
       .submit();
     return new HomePage();
   }
