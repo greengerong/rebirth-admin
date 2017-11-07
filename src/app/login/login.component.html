@@ -7,12 +7,12 @@
         输入的用户名或者密码无效!(测试账号：admin/admin、user/user)。
       </re-alert-box>
       <div class="form-group"
-           [ngClass]="{'has-error': loginForm.controls['userName'].touched && loginForm.controls['userName'].invalid}">
-        <label for="userName">用户名</label>
-        <input id="userName" name="userName" type="text" class="form-control" maxlength="20"
-               formControlName="userName"/>
+           [ngClass]="{'has-error': loginForm.controls['username'].touched && loginForm.controls['username'].invalid}">
+        <label for="username">用户名</label>
+        <input id="username" name="username" type="text" class="form-control" maxlength="20"
+               formControlName="username"/>
         <div class="help-block"
-             *ngIf="loginForm.controls['userName'].touched && loginForm.controls['userName'].hasError('required')">
+             *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].hasError('required')">
           请输入用户名!
         </div>
       </div>

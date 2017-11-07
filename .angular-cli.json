@@ -54,7 +54,6 @@
     "codeCoverage": {
       "exclude": [
         "src/test-utils/**",
-        "src/app/login/**",
         "src/app/shared/menu-bar/**"
       ]
     }
