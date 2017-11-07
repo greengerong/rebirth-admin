@@ -1,6 +1,8 @@
 import { browser, element, by } from 'protractor';
+import { RebirthPage } from '../utils/rebirth.page';
+import { HomePage } from '../home/home.po';
 
-export class LoginPage {
+export class LoginPage extends RebirthPage {
 
   navigateTo() {
     browser.get('/');
@@ -27,6 +29,13 @@ export class LoginPage {
 
   submit() {
     return element(by.id('submit')).click();
+  }
+
+  withDefault() {
+    this.username('admin')
+      .password('admin')
+      .submit();
+    return new HomePage();
   }
 
 }

@@ -18,12 +18,14 @@ describe('rebirth-admin App', () => {
     expect(page.canLogin()).toBeTruthy();
 
     page.submit();
-    expect(browser.getCurrentUrl()).toContain('/manage/home');
+
+    expect(page.url()).toContain('/manage/home');
   });
 
   it('should not login with error user', () => {
 
-    page.username('dummy')
+    page
+      .username('dummy')
       .password('dummy')
       .submit();
 
