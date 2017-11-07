@@ -77,7 +77,7 @@ describe('AppComponent', () => {
 
       expect(loadingService.show).toHaveBeenCalled();
       expect(authorizationService.getCurrentUser).toHaveBeenCalled();
-      expect(result.headers.get('Authorization')).toEqual(currentUser.token);
+      expect(result.headers.get('Authorization')).toEqual(`Bearer ${currentUser.token }`);
     })));
 
   it(`should setup http response interceptors`, async(inject([RebirthHttpProvider, LoadingService],
