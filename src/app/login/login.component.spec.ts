@@ -61,5 +61,18 @@ describe('LoginComponent', () => {
       expect(component.showError).toBeTruthy();
 
     }));
+
+  it('should not login when form is invalid', inject([HttpTestingController],
+    (httpMock: HttpTestingController) => {
+      const component = fixture.componentInstance;
+      component.loginForm.setValue({ username: 'username', password: '' });
+      fixture.detectChanges();
+
+      component.login();
+
+      const request = httpMock.match('login');
+      expect(request.length).toEqual(0);
+
+    }));
 })
 ;

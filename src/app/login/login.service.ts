@@ -23,11 +23,6 @@ export class LoginService extends RebirthHttp {
       });
   }
 
-
-  logout(): void {
-    this.authorizationService.logout();
-  }
-
   @POST('login')
   private innerLogin(@Body body): Observable<CurrentUser> {
     return null;
