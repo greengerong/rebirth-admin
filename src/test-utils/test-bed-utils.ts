@@ -10,11 +10,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @Component({
   selector: 'app-test',
-  template: ``
+  template: `<div>TestComponent</div>`
 })
 
 export class TestComponent {
-
+  props: { [key: string]: any } = {};
 }
 
 
@@ -32,6 +32,7 @@ export class TestBedUtils {
       ...(options.ignoreShareModule ? [] : [SharedModule]),
       RouterModule.forRoot(options.routes || [])
     ];
+    moduleDef.declarations = [(moduleDef.declarations || []), TestComponent];
     moduleDef.providers = [...(moduleDef.providers || []),
       { provide: APP_BASE_HREF, useValue: '/' },
       HttpClientTestingModule
