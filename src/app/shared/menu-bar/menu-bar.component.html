@@ -1,7 +1,7 @@
 <ul class="nav nav-pills nav-stacked nav-container" *ngIf="menuConfig?.menus">
   <li class="nav-item nav-row" *ngFor="let data of menuConfig?.menus">
     <div>
-      <div class="column icon-menu">
+      <div class="column icon-menu" (click)="showTextMenuBar($event)">
         <a class="nav-link"
            [routerLink]="data.link"
            routerLinkActive="active">

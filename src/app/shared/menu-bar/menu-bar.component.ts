@@ -61,8 +61,12 @@ export class MenuBarComponent implements OnInit, OnDestroy {
     }
   }
 
+  showTextMenuBar(event) {
+    event.preventDefault();
+    this.isTextMenuBarOpen = true;
+  }
+
   ngOnDestroy(): void {
     this.listens.forEach(listen => listen());
   }
-
 }
