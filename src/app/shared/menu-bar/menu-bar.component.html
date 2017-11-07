@@ -22,8 +22,8 @@
                [routerLink]="data.link"
                [routerLinkActive]="data.children?.length ? '' : 'active'">
               {{data.name}}
-              <i class="fa fa-caret-up navigator" aria-hidden="true" *ngIf="shouldShowElement(data.link)"></i>
-              <i class="fa fa-caret-down navigator" aria-hidden="true" *ngIf="!shouldShowElement(data.link)"></i>
+              <i class="fa fa-caret-up navigator" aria-hidden="true" *ngIf="shouldShowUpArrow(data.link)"></i>
+              <i class="fa fa-caret-down navigator" aria-hidden="true" *ngIf="!shouldShowUpArrow(data.link)"></i>
             </a>
           </li>
           <li class="nav-item" *ngFor="let children of data.children; let i = index;">

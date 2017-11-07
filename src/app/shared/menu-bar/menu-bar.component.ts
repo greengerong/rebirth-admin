@@ -48,7 +48,7 @@ export class MenuBarComponent implements OnInit, OnDestroy {
       ($event) => this.windowResize.emit($event)));
   }
 
-  shouldShowElement(path): boolean {
+  shouldShowUpArrow(path): boolean {
     return this.router.url.indexOf(path) !== -1;
   }
 

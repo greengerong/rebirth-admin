@@ -1,28 +1,41 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import { MenuBarComponent } from './menu-bar.component';
-import { CollapseDirective } from '../collapse/collapse.directive';
 import { TestBedUtils } from '../../../test-utils/test-bed-utils';
+import { Router } from '@angular/router';
 
 describe('MenuBarComponent', () => {
-  let component: MenuBarComponent;
   let fixture: ComponentFixture<MenuBarComponent>;
 
   beforeEach(async(() => {
-    TestBedUtils.configureTestingModule({
-      declarations: [CollapseDirective, MenuBarComponent],
-      providers: []
-    }, { ignoreShareModule: true })
+    TestBedUtils.configureTestingModule({})
       .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuBarComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+  it('should show text & icon menu', () => {
+    const component = fixture.componentInstance;
+    component.isTextMenuBarOpen = true;
+    component.isIconMenuBarOpen = true;
+    expect(component.getClassNames()).toEqual('open-text-menu open-icon-menu');
   });
+
+  it('should hide text & icon menu', () => {
+    const component = fixture.componentInstance;
+    component.isTextMenuBarOpen = false;
+    component.isIconMenuBarOpen = false;
+    expect(component.getClassNames()).toEqual('hide-text-menu hide-icon-menu');
+  });
+
+  it('should show up arrow in menu item', inject([Router], () => {
+    const url = '/test';
+    const component = fixture.componentInstance;
+    (component as any).router = { url };
+    expect(component.shouldShowUpArrow(url)).toBeTruthy();
+  }));
+
 });
