@@ -68,4 +68,18 @@ describe('MenuBarComponent', () => {
       expect(component.isIconMenuBarOpen).toBeTruthy();
     }));
 
+  it('should show text menu bar when click icon menu bar',
+    inject([], () => {
+
+      const component =  fixture.componentInstance as any;
+      const mockEvent = { preventDefault: () => {}};
+      component.isTextMenuBarOpen = false;
+      component.isIconMenuBarOpen = true;
+      component.windowRef.innerWidth = MenuBarComponent.MIN_MIDDLE_SCREEN + 10;
+      component.showTextMenuBar(mockEvent);
+
+      expect(component.isTextMenuBarOpen).toBeTruthy();
+      expect(component.isTextMenuBarOpen).toBeTruthy();
+    }));
+
 });
