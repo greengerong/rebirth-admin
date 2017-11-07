@@ -1,7 +1,7 @@
 - request:
     url: /api/login$
     method: POST
-    post: '{"userName":"admin","password":"admin"}'
+    post: '{"username":"admin","password":"admin"}'
   response:
     status: 200
     latency: 500
@@ -16,7 +16,7 @@
 - request:
     url: /api/login$
     method: POST
-    post: '{"userName":"user","password":"user"}'
+    post: '{"username":"user","password":"user"}'
   response:
     status: 200
     latency: 500

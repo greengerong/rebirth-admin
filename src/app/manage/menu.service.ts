@@ -22,12 +22,12 @@ export class MenuService {
           link: '/manage/home',
           name: '主页',
           svgClass: 'fa fa-home',
-          svgPath: '/assets/common/sales.svg',
+          svgPath: './assets/common/sales.svg',
         },
         {
           link: '/manage/order',
           name: '销售配置',
-          svgPath: '/assets/common/sales.svg',
+          svgPath: './assets/common/sales.svg',
           children: [
             {
               link: '/manage/order',
@@ -42,7 +42,7 @@ export class MenuService {
         {
           link: '/manage/user',
           name: '后市场配置',
-          svgPath: '/assets/common/after-sales.svg',
+          svgPath: './assets/common/after-sales.svg',
           children: [
             {
               link: '/manage/user',
@@ -57,7 +57,7 @@ export class MenuService {
         {
           link: '/manage/document',
           name: '文档配置',
-          svgPath: '/assets/common/document.svg',
+          svgPath: './assets/common/document.svg',
           children: []
         }
       ]
