@@ -3,7 +3,7 @@ import { LoginComponent } from './login.component';
 import { TestBedUtils } from '../../test-utils/test-bed-utils';
 import { LoginModule } from './login.module';
 import { By } from '@angular/platform-browser';
-import { HttpTestingController } from "@angular/common/http/testing";
+import { HttpTestingController } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
 
 describe('LoginComponent', () => {
