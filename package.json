@@ -41,7 +41,7 @@
     "immutable": "^3.8.1",
     "normalize.css": "^7.0.0",
     "rebirth-event-source": "^0.0.1",
-    "rebirth-http": "^0.1.5",
+    "rebirth-http": "^0.1.6",
     "rebirth-ng": "^0.1.5",
     "rebirth-permission": "^0.0.8",
     "rebirth-storage": "^0.0.11",

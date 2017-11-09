@@ -56,7 +56,7 @@ export class AppComponent {
         }
       })
       .addResponseErrorInterceptor((res: HttpErrorResponse) => {
-        if ([401, 403].indexOf(res.status) !== -1) {
+        if (res.status && [401, 403].indexOf(res.status) !== -1) {
           this.router.navigateByUrl('/login');
         }
       });

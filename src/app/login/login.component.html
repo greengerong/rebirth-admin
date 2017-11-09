@@ -9,7 +9,7 @@
       <div class="form-group"
            [ngClass]="{'has-error': loginForm.controls['username'].touched && loginForm.controls['username'].invalid}">
         <label for="username">用户名</label>
-        <input id="username" name="username" type="text" class="form-control" maxlength="20"
+        <input id="username" name="username" type="text" class="form-control" maxlength="20" autofocus
                formControlName="username"/>
         <div class="help-block"
              *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].hasError('required')">

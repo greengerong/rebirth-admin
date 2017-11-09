@@ -1,5 +1,61 @@
 .loading {
-  background: url("../assets/images/loading.gif") no-repeat;
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
+  float: left;
+  display: -webkit-flex; /*safari弹性布局*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    width: 5px;
+    height: 35px;
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &:nth-child(1) {
+      -webkit-animation: loading 0.5s -0.3s ease-in-out infinite alternate;
+      -o-animation: loading 0.5s -0.3s ease-in-out infinite alternate;
+      animation: loading 0.5s -0.3s ease-in-out infinite alternate;
+    }
+
+    &:nth-child(2) {
+      -webkit-animation: loading 0.5s -0.25s ease-in-out infinite alternate;
+      -o-animation: loading 0.5s -0.25s ease-in-out infinite alternate;
+      animation: loading 0.5s -0.25s ease-in-out infinite alternate;
+    }
+
+    &:nth-child(3) {
+      -webkit-animation: loading 0.5s -0.2s ease-in-out infinite alternate;
+      -o-animation: loading 0.5s -0.2s ease-in-out infinite alternate;
+      animation: loading 0.5s -0.2s ease-in-out infinite alternate;
+    }
+
+    &:nth-child(4) {
+      -webkit-animation: loading 0.5s -0.1s ease-in-out infinite alternate;
+      -o-animation: loading 0.5s -0.1s ease-in-out infinite alternate;
+      animation: loading 0.5s -0.1s ease-in-out infinite alternate;
+    }
+
+    &:nth-child(5) {
+      -webkit-animation: loading 0.5s 0s ease-in-out infinite alternate;
+      -o-animation: loading 0.5s 0s ease-in-out infinite alternate;
+      animation: loading 0.5s 0s ease-in-out infinite alternate;
+    }
+  }
+
+}
+
+@-webkit-keyframes loading {
+  0% {
+    height: 10px;
+  }
+  100% {
+    height: 35px;
+  }
 }

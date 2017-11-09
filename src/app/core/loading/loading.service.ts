@@ -12,7 +12,7 @@ export class LoadingService {
     return new Promise<LoadingService>((resolve => {
       setTimeout(() => {
         this.overlayService.open({
-          html: `<div class="loading"></div>`
+          html: `<div class="loading"><div></div><div></div><div></div><div></div><div></div></div>`
         });
         resolve(this);
       });
