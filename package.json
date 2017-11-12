@@ -34,8 +34,8 @@
     "prettier": "prettier --parser typescript --single-quote --trailing-comma --write \"./**/*.ts\""
   },
   "lint-staged": {
-    "*.{js,json,css,scss,ts}": [
-      "prettier --write --single-quote --trailing-commaes5",
+    "*.{js,css,scss,ts}": [
+      "prettier --write --single-quote --trailing-commaall",
       "git add"
     ]
   },
@@ -97,6 +97,8 @@
     "sw-precache": "^5.2.0",
     "ts-node": "^3.3.0",
     "tslint": "~5.7.0",
+    "tslint-config-prettier": "^1.6.0",
+    "tslint-plugin-prettier": "^1.3.0",
     "typescript": ">=2.4.2 <2.5"
   }
 }
