@@ -1,6 +1,8 @@
 # RebirthAdmin
 
 [![Build Status](https://travis-ci.org/greengerong/rebirth-admin.svg?branch=master)](https://travis-ci.org/greengerong/rebirth-admin)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 
 ## 背景
 
