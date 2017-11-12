@@ -3,6 +3,7 @@ import { LoginComponent } from './login.component';
 
 export const ROUTER_CONFIG: Routes = [
   {
-    path: '', component: LoginComponent
-  }
+    path: '',
+    component: LoginComponent,
+  },
 ];

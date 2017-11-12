@@ -6,7 +6,7 @@ import {
   Input,
   OnChanges,
   Renderer2,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -16,19 +16,19 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CollapseDirective),
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  host: { '[class.collapse]': 'true' }
+  host: { '[class.collapse]': 'true' },
 })
 export class CollapseDirective implements OnChanges {
-  @HostBinding('style.display')
-  display: string;
+  @HostBinding('style.display') display: string;
 
   @HostBinding('class.in')
   @HostBinding('class.show')
   @HostBinding('attr.aria-expanded')
-  @Input('appCollapse') collapse: boolean;
+  @Input('appCollapse')
+  collapse: boolean;
 
   protected elementRef: ElementRef;
   protected renderer: Renderer2;
@@ -58,7 +58,11 @@ export class CollapseDirective implements OnChanges {
   show(): void {
     this.collapse = true;
     this.display = 'block';
-    this.renderer.setStyle(this.elementRef.nativeElement, 'overflow', 'visible');
+    this.renderer.setStyle(
+      this.elementRef.nativeElement,
+      'overflow',
+      'visible'
+    );
     this.renderer.setStyle(this.elementRef.nativeElement, 'height', 'auto');
   }
 }

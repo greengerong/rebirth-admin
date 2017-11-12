@@ -7,16 +7,9 @@ import { ROUTER_CONFIG } from './login.routes';
 import { LoginService } from './login.service';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RouterModule.forChild(ROUTER_CONFIG)
-  ],
+  imports: [SharedModule, RouterModule.forChild(ROUTER_CONFIG)],
   exports: [],
   declarations: [LoginComponent],
-  providers: [
-    LoginService
-  ],
+  providers: [LoginService],
 })
-export class LoginModule {
-
-}
+export class LoginModule {}

@@ -10,32 +10,38 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @Component({
   selector: 'app-test',
-  template: `<div>TestComponent</div>`
+  template: `<div>TestComponent</div>`,
 })
-
 export class TestComponent {
   props: { [key: string]: any } = {};
 }
 
-
 export class TestBedUtils {
-
-  static configureTestingModule(moduleDef: TestModuleMetadata, options?: {
-    ignoreShareModule?: boolean,
-    ignoreCoreModule?: boolean,
-    routes?: Routes
-  }): typeof TestBed {
-    options = options || { ignoreCoreModule: false, ignoreShareModule: false, routes: [] };
-    moduleDef.imports = [...(moduleDef.imports || []),
+  static configureTestingModule(
+    moduleDef: TestModuleMetadata,
+    options?: {
+      ignoreShareModule?: boolean;
+      ignoreCoreModule?: boolean;
+      routes?: Routes;
+    }
+  ): typeof TestBed {
+    options = options || {
+      ignoreCoreModule: false,
+      ignoreShareModule: false,
+      routes: [],
+    };
+    moduleDef.imports = [
+      ...(moduleDef.imports || []),
       NoopAnimationsModule,
       HttpClientTestingModule,
       ...(options.ignoreCoreModule ? [] : [CoreModule]),
       ...(options.ignoreShareModule ? [] : [SharedModule]),
-      RouterModule.forRoot(options.routes || [])
+      RouterModule.forRoot(options.routes || []),
     ];
-    moduleDef.declarations = [(moduleDef.declarations || []), TestComponent];
-    moduleDef.providers = [...(moduleDef.providers || []),
-      { provide: APP_BASE_HREF, useValue: '/' }
+    moduleDef.declarations = [moduleDef.declarations || [], TestComponent];
+    moduleDef.providers = [
+      ...(moduleDef.providers || []),
+      { provide: APP_BASE_HREF, useValue: '/' },
     ];
     moduleDef.declarations = [...(moduleDef.declarations || []), TestComponent];
 
@@ -47,5 +53,3 @@ export class TestBedUtils {
     $elm.nativeElement.dispatchEvent(new Event('input'));
   }
 }
-
-

@@ -3,7 +3,6 @@ import { RebirthPage } from '../utils/rebirth.page';
 import { HomePage } from '../home/home.po';
 
 export class LoginPage extends RebirthPage {
-
   navigateTo() {
     browser.get('/');
     return this;
@@ -31,12 +30,11 @@ export class LoginPage extends RebirthPage {
     return element(by.id('submit')).click();
   }
 
-  login(form?: { username: 'admin', password: 'admin' }) {
+  login(form?: { username: 'admin'; password: 'admin' }) {
     browser.get('/');
     this.username(form.username)
       .password(form.password)
       .submit();
     return new HomePage();
   }
-
 }

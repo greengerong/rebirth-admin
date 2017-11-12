@@ -17,17 +17,17 @@ import { Router } from '@angular/router';
     <app-page-footer></app-page-footer>
 
   `,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
-  constructor(private rebirthNGConfig: RebirthNGConfig,
-              private authorizationService: AuthorizationService,
-              private viewContainerRef: ViewContainerRef,
-              private loadingService: LoadingService,
-              private router: Router,
-              private rebirthHttpProvider: RebirthHttpProvider) {
-
+  constructor(
+    private rebirthNGConfig: RebirthNGConfig,
+    private authorizationService: AuthorizationService,
+    private viewContainerRef: ViewContainerRef,
+    private loadingService: LoadingService,
+    private router: Router,
+    private rebirthHttpProvider: RebirthHttpProvider
+  ) {
     this.applicationSetup();
   }
 
@@ -45,15 +45,17 @@ export class AppComponent {
         },
         response: () => {
           this.loadingService.hide();
-        }
+        },
       })
       .addInterceptor({
-        request: (request) => {
+        request: request => {
           const currentUser = this.authorizationService.getCurrentUser();
           if (currentUser) {
-            return request.clone({ setHeaders: { Authorization: `Bearer ${currentUser.token }` } });
+            return request.clone({
+              setHeaders: { Authorization: `Bearer ${currentUser.token}` },
+            });
           }
-        }
+        },
       })
       .addResponseErrorInterceptor((res: HttpErrorResponse) => {
         if (res.status && [401, 403].indexOf(res.status) !== -1) {

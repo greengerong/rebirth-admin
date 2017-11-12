@@ -5,7 +5,10 @@ import { LoadingService } from './loading.service';
 import { OverlayService } from 'rebirth-ng';
 
 describe('LoadingService', () => {
-  const overlayService = jasmine.createSpyObj('overlayService', ['open', 'close']);
+  const overlayService = jasmine.createSpyObj('overlayService', [
+    'open',
+    'close',
+  ]);
 
   beforeEach(() => {
     TestBedUtils.configureTestingModule({
@@ -13,18 +16,27 @@ describe('LoadingService', () => {
         LoadingService,
         {
           provide: OverlayService,
-          useValue: overlayService
-        }
-      ]
+          useValue: overlayService,
+        },
+      ],
     });
   });
 
-  it('should show overlay', inject([LoadingService], (service: LoadingService) => {
-    return service.show().then(() => expect(overlayService.open).toHaveBeenCalled());
-  }));
+  it(
+    'should show overlay',
+    inject([LoadingService], (service: LoadingService) => {
+      return service
+        .show()
+        .then(() => expect(overlayService.open).toHaveBeenCalled());
+    })
+  );
 
-  it('should hide overlay', inject([LoadingService], (service: LoadingService) => {
-    return service.hide().then(() => expect(overlayService.close).toHaveBeenCalled());
-  }));
-
+  it(
+    'should hide overlay',
+    inject([LoadingService], (service: LoadingService) => {
+      return service
+        .hide()
+        .then(() => expect(overlayService.close).toHaveBeenCalled());
+    })
+  );
 });

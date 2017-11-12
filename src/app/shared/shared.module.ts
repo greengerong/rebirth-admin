@@ -23,7 +23,7 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     CollapseDirective,
     MenuBarComponent,
     PageHeaderComponent,
-    FieldErrorComponent
+    FieldErrorComponent,
   ],
   exports: [
     CommonModule,
@@ -35,8 +35,6 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     CollapseDirective,
     MenuBarComponent,
   ],
-  providers: []
+  providers: [],
 })
-export class SharedModule {
-
-}
+export class SharedModule {}

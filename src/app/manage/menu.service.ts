@@ -5,10 +5,7 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class MenuService {
-
-  constructor(private authorizationService: AuthorizationService) {
-
-  }
+  constructor(private authorizationService: AuthorizationService) {}
 
   getMenuConfig() {
     // this.authorizationService.getCurrentUser().roles.indexOf('Admin') or ajax
@@ -31,13 +28,13 @@ export class MenuService {
           children: [
             {
               link: '/manage/order',
-              name: '订单管理'
+              name: '订单管理',
             },
             {
               link: '/manage/order/list',
-              name: '订单列表'
-            }
-          ]
+              name: '订单列表',
+            },
+          ],
         },
         {
           link: '/manage/user',
@@ -46,21 +43,21 @@ export class MenuService {
           children: [
             {
               link: '/manage/user',
-              name: '用户管理'
+              name: '用户管理',
             },
             {
               link: '/manage/user/list',
-              name: '用户列表'
-            }
-          ]
+              name: '用户列表',
+            },
+          ],
         },
         {
           link: '/manage/document',
           name: '文档配置',
           svgPath: './assets/common/document.svg',
-          children: []
-        }
-      ]
+          children: [],
+        },
+      ],
     });
   }
 }

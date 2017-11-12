@@ -6,12 +6,13 @@ describe('OrderMockComponent', () => {
   let component: OrderMockComponent;
   let fixture: ComponentFixture<OrderMockComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ OrderMockComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [OrderMockComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderMockComponent);

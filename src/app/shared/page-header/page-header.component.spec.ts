@@ -7,12 +7,16 @@ describe('PageHeaderComponent', () => {
   let component: PageHeaderComponent;
   let fixture: ComponentFixture<PageHeaderComponent>;
 
-  beforeEach(async(() => {
-    TestBedUtils.configureTestingModule({
-      declarations: [PageHeaderComponent]
-    }, { ignoreShareModule: true })
-      .compileComponents();
-  }));
+  beforeEach(
+    async(() => {
+      TestBedUtils.configureTestingModule(
+        {
+          declarations: [PageHeaderComponent],
+        },
+        { ignoreShareModule: true }
+      ).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PageHeaderComponent);
@@ -21,6 +25,8 @@ describe('PageHeaderComponent', () => {
   });
 
   it('should render page header', () => {
-    expect(fixture.debugElement.nativeElement.textContent).toContain('page-header works');
+    expect(fixture.debugElement.nativeElement.textContent).toContain(
+      'page-header works'
+    );
   });
 });

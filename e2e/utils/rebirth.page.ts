@@ -1,7 +1,6 @@
 import { browser } from 'protractor';
 
 export class RebirthPage {
-
   url() {
     return browser.getCurrentUrl();
   }
@@ -9,5 +8,4 @@ export class RebirthPage {
   title() {
     return browser.getTitle();
   }
-
 }

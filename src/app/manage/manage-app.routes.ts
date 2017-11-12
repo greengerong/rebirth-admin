@@ -16,6 +16,6 @@ export const ROUTER_CONFIG: Routes = [
       { path: 'order', component: OrderMockComponent },
       { path: 'user', component: UserMockComponent },
       { path: 'document', component: UserMockComponent },
-    ]
-  }
+    ],
+  },
 ];

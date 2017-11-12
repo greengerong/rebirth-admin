@@ -9,20 +9,9 @@ import { UserMockComponent } from './user-mock/user-mock.component';
 import { MenuService } from './menu.service';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RouterModule.forChild(ROUTER_CONFIG),
-  ],
+  imports: [SharedModule, RouterModule.forChild(ROUTER_CONFIG)],
   exports: [],
-  declarations: [
-    ManageAppComponent,
-    OrderMockComponent,
-    UserMockComponent,
-  ],
-  providers: [
-    MenuService
-  ],
+  declarations: [ManageAppComponent, OrderMockComponent, UserMockComponent],
+  providers: [MenuService],
 })
-export class ManageAppModule {
-
-}
+export class ManageAppModule {}

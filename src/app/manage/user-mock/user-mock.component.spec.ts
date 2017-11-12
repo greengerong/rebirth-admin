@@ -6,12 +6,13 @@ describe('UserMockComponent', () => {
   let component: UserMockComponent;
   let fixture: ComponentFixture<UserMockComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UserMockComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [UserMockComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserMockComponent);

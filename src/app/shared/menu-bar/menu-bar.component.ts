@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { WindowRef } from 'rebirth-ng';
 import { MenuConfig } from './menu-config.model';
 import { Router } from '@angular/router';
@@ -10,11 +17,9 @@ import { Router } from '@angular/router';
   host: {
     '[class]': `getClassNames()`,
   },
-  exportAs: 'menuBar'
+  exportAs: 'menuBar',
 })
 export class MenuBarComponent implements OnInit, OnDestroy {
-
-
   static MAX_MIDDLE_SCREEN = 768;
   static MIN_MIDDLE_SCREEN = 576;
   @Input() menuConfig: MenuConfig;
@@ -23,18 +28,27 @@ export class MenuBarComponent implements OnInit, OnDestroy {
   windowResize = new EventEmitter<any>();
   listens: any[] = [];
 
-  constructor(private router: Router, private renderer: Renderer2, private windowRef: WindowRef) {
-  }
+  constructor(
+    private router: Router,
+    private renderer: Renderer2,
+    private windowRef: WindowRef
+  ) {}
 
   getClassNames() {
-    const textMenuClass = this.isTextMenuBarOpen ? 'open-text-menu' : 'hide-text-menu';
-    const iconMenuClass = this.isIconMenuBarOpen ? 'open-icon-menu' : 'hide-icon-menu';
+    const textMenuClass = this.isTextMenuBarOpen
+      ? 'open-text-menu'
+      : 'hide-text-menu';
+    const iconMenuClass = this.isIconMenuBarOpen
+      ? 'open-icon-menu'
+      : 'hide-icon-menu';
     return `${textMenuClass} ${iconMenuClass}`;
   }
 
   updateMenuBarStatus() {
-    this.isTextMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MAX_MIDDLE_SCREEN;
-    this.isIconMenuBarOpen = this.windowRef.innerWidth >= MenuBarComponent.MIN_MIDDLE_SCREEN;
+    this.isTextMenuBarOpen =
+      this.windowRef.innerWidth >= MenuBarComponent.MAX_MIDDLE_SCREEN;
+    this.isIconMenuBarOpen =
+      this.windowRef.innerWidth >= MenuBarComponent.MIN_MIDDLE_SCREEN;
   }
 
   ngOnInit(): void {
@@ -44,8 +58,11 @@ export class MenuBarComponent implements OnInit, OnDestroy {
       .distinctUntilChanged()
       .subscribe(() => this.updateMenuBarStatus());
 
-    this.listens.push(this.renderer.listen('window', 'resize',
-      ($event) => this.windowResize.emit($event)));
+    this.listens.push(
+      this.renderer.listen('window', 'resize', $event =>
+        this.windowResize.emit($event)
+      )
+    );
   }
 
   shouldShowUpArrow(path): boolean {

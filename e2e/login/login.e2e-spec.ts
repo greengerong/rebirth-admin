@@ -9,11 +9,9 @@ describe('rebirth-admin App', () => {
   });
 
   it('should login with admin', () => {
-
     expect(page.canLogin()).toBeFalsy();
 
-    page.username('admin')
-      .password('admin');
+    page.username('admin').password('admin');
 
     expect(page.canLogin()).toBeTruthy();
 
@@ -23,7 +21,6 @@ describe('rebirth-admin App', () => {
   });
 
   it('should not login with error user', () => {
-
     page
       .username('dummy')
       .password('dummy')

@@ -5,18 +5,16 @@ import { MenuService } from './menu.service';
 @Component({
   selector: 'app-manage-app',
   templateUrl: './manage-app.component.html',
-  styleUrls: ['./manage-app.component.scss']
+  styleUrls: ['./manage-app.component.scss'],
 })
 export class ManageAppComponent implements OnInit {
-
   menuConfig: MenuConfig;
 
-  constructor(private menuService: MenuService) {
-
-  }
+  constructor(private menuService: MenuService) {}
 
   ngOnInit(): void {
-    this.menuService.getMenuConfig()
-      .subscribe(menuConfig => this.menuConfig = menuConfig);
+    this.menuService
+      .getMenuConfig()
+      .subscribe(menuConfig => (this.menuConfig = menuConfig));
   }
 }

@@ -7,7 +7,6 @@ export class GuidService {
   newId() {
     const now = new Date();
     const utc = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-    return utc.getTime().toString() + (this.uid++);
+    return utc.getTime().toString() + this.uid++;
   }
-
 }

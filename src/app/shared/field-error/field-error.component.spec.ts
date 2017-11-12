@@ -6,12 +6,13 @@ describe('FieldErrorComponent', () => {
   let component: FieldErrorComponent;
   let fixture: ComponentFixture<FieldErrorComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FieldErrorComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [FieldErrorComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FieldErrorComponent);
