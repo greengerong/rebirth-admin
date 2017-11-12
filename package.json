@@ -29,10 +29,14 @@
       "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
     "precommit": "lint-staged",
     "prepush": "npm test",
-    "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}"
+    "prettier-watch":
+      "onchange '**/*.js' -- prettier --write --single-quote --trailing-comma {{changed}}"
   },
   "lint-staged": {
-    "*.{js,json,css,scss,ts}": ["prettier --write", "git add"]
+    "*.{js,json,css,scss,ts}": [
+      "prettier --write --single-quote --trailing-comma all",
+      "git add"
+    ]
   },
   "private": true,
   "dependencies": {
