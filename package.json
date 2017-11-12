@@ -30,11 +30,12 @@
     "precommit": "lint-staged",
     "prepush": "npm test",
     "prettier-watch":
-      "onchange '**/*.js' -- prettier --write --single-quote --trailing-comma {{changed}}"
+      "onchange '**/*.js' -- prettier --write --single-quote --trailing-comma {{changed}}",
+    "prettier": "prettier --parser typescript --single-quote --trailing-comma --write \"./**/*.ts\""
   },
   "lint-staged": {
     "*.{js,json,css,scss,ts}": [
-      "prettier --write --single-quote --trailing-comma all",
+      "prettier --write --single-quote --trailing-commaes5",
       "git add"
     ]
   },
