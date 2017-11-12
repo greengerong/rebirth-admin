@@ -37,13 +37,13 @@ describe('AppComponent', () => {
 
       fixture = TestBed.createComponent(AppComponent);
       fixture.detectChanges();
-    })
+    }),
   );
 
   beforeEach(
     inject([Router], (router: Router) => {
       router.navigateByUrl = jasmine.createSpy('router');
-    })
+    }),
   );
 
   it(
@@ -51,16 +51,16 @@ describe('AppComponent', () => {
     async(() => {
       const app = fixture.debugElement.componentInstance;
       expect(app).toBeTruthy();
-    })
+    }),
   );
 
   it(
     `should setup router outlet`,
     async(() => {
       expect(
-        fixture.debugElement.query(By.css('router-outlet')).nativeElement
+        fixture.debugElement.query(By.css('router-outlet')).nativeElement,
       ).toBeDefined();
-    })
+    }),
   );
 
   it(
@@ -68,8 +68,8 @@ describe('AppComponent', () => {
     async(
       inject([RebirthNGConfig], (rebirthNGConfig: RebirthNGConfig) => {
         expect(rebirthNGConfig.rootContainer).toBeDefined();
-      })
-    )
+      }),
+    ),
   );
 
   it(
@@ -79,11 +79,11 @@ describe('AppComponent', () => {
         [RebirthHttpProvider],
         (rebirthHttpProvider: RebirthHttpProvider) => {
           expect(rebirthHttpProvider.getInterceptors().length).toBeGreaterThan(
-            0
+            0,
           );
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 
   it(
@@ -94,7 +94,7 @@ describe('AppComponent', () => {
         (
           rebirthHttpProvider: RebirthHttpProvider,
           loadingService: LoadingService,
-          authorizationService: AuthorizationService
+          authorizationService: AuthorizationService,
         ) => {
           const request = new HttpRequest<any>('GET', 'url');
           rebirthHttpProvider
@@ -104,9 +104,9 @@ describe('AppComponent', () => {
 
           expect(loadingService.show).toHaveBeenCalled();
           expect(authorizationService.getCurrentUser).toHaveBeenCalled();
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 
   it(
@@ -117,12 +117,12 @@ describe('AppComponent', () => {
         (
           rebirthHttpProvider: RebirthHttpProvider,
           loadingService: LoadingService,
-          authorizationService: AuthorizationService
+          authorizationService: AuthorizationService,
         ) => {
           const request = new HttpRequest<any>('GET', 'url');
           const currentUser = { token: 'token' };
           (authorizationService.getCurrentUser as any).and.returnValue(
-            currentUser
+            currentUser,
           );
           const result = rebirthHttpProvider
             .getInterceptors()
@@ -132,11 +132,11 @@ describe('AppComponent', () => {
           expect(loadingService.show).toHaveBeenCalled();
           expect(authorizationService.getCurrentUser).toHaveBeenCalled();
           expect(result.headers.get('Authorization')).toEqual(
-            `Bearer ${currentUser.token}`
+            `Bearer ${currentUser.token}`,
           );
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 
   it(
@@ -146,7 +146,7 @@ describe('AppComponent', () => {
         [RebirthHttpProvider, LoadingService],
         (
           rebirthHttpProvider: RebirthHttpProvider,
-          loadingService: LoadingService
+          loadingService: LoadingService,
         ) => {
           const response = new HttpResponse<any>({ status: 200 });
           rebirthHttpProvider
@@ -156,9 +156,9 @@ describe('AppComponent', () => {
             .reduce((res, item) => item.response(res) || res, response);
 
           expect(loadingService.hide).toHaveBeenCalled();
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 
   it(
@@ -175,9 +175,9 @@ describe('AppComponent', () => {
             .reduce((res, item) => item.response(res) || res, response);
 
           expect(router.navigateByUrl).toHaveBeenCalledWith('/login');
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 
   it(
@@ -194,8 +194,8 @@ describe('AppComponent', () => {
             .reduce((res, item) => item.response(res) || res, response);
 
           expect(router.navigateByUrl).not.toHaveBeenCalled();
-        }
-      )
-    )
+        },
+      ),
+    ),
   );
 });

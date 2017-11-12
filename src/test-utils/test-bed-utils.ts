@@ -23,7 +23,7 @@ export class TestBedUtils {
       ignoreShareModule?: boolean;
       ignoreCoreModule?: boolean;
       routes?: Routes;
-    }
+    },
   ): typeof TestBed {
     options = options || {
       ignoreCoreModule: false,

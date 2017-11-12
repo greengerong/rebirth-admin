@@ -26,7 +26,7 @@ export class AppComponent {
     private viewContainerRef: ViewContainerRef,
     private loadingService: LoadingService,
     private router: Router,
-    private rebirthHttpProvider: RebirthHttpProvider
+    private rebirthHttpProvider: RebirthHttpProvider,
   ) {
     this.applicationSetup();
   }

@@ -28,7 +28,7 @@ describe('LoadingService', () => {
       return service
         .show()
         .then(() => expect(overlayService.open).toHaveBeenCalled());
-    })
+    }),
   );
 
   it(
@@ -37,6 +37,6 @@ describe('LoadingService', () => {
       return service
         .hide()
         .then(() => expect(overlayService.close).toHaveBeenCalled());
-    })
+    }),
   );
 });

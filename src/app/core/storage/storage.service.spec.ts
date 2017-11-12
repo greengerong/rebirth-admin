@@ -18,6 +18,6 @@ describe('ReStorageService', () => {
       expect(service.get<any>(key).test).toBeTruthy();
       service.remove(key);
       service.clear();
-    })
+    }),
   );
 });

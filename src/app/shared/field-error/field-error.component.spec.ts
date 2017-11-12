@@ -11,7 +11,7 @@ describe('FieldErrorComponent', () => {
       TestBed.configureTestingModule({
         declarations: [FieldErrorComponent],
       }).compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {

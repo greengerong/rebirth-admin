@@ -11,7 +11,7 @@ describe('UserMockComponent', () => {
       TestBed.configureTestingModule({
         declarations: [UserMockComponent],
       }).compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {

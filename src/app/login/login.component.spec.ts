@@ -19,7 +19,7 @@ describe('LoginComponent', () => {
       TestBedUtils.configureTestingModule({
         imports: [LoginModule],
       }).compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {
@@ -54,8 +54,8 @@ describe('LoginComponent', () => {
         const request = httpMock.expectOne('login');
         request.flush({});
         expect(router.navigateByUrl).toHaveBeenCalledWith('/manage/home');
-      }
-    )
+      },
+    ),
   );
 
   it(
@@ -72,7 +72,7 @@ describe('LoginComponent', () => {
       const request = httpMock.expectOne('login');
       request.error(null, { status: 400 });
       expect(component.showError).toBeTruthy();
-    })
+    }),
   );
 
   it(
@@ -86,6 +86,6 @@ describe('LoginComponent', () => {
 
       const request = httpMock.match('login');
       expect(request.length).toEqual(0);
-    })
+    }),
   );
 });

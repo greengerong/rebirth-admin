@@ -31,7 +31,7 @@ export class MenuBarComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private renderer: Renderer2,
-    private windowRef: WindowRef
+    private windowRef: WindowRef,
   ) {}
 
   getClassNames() {
@@ -60,8 +60,8 @@ export class MenuBarComponent implements OnInit, OnDestroy {
 
     this.listens.push(
       this.renderer.listen('window', 'resize', $event =>
-        this.windowResize.emit($event)
-      )
+        this.windowResize.emit($event),
+      ),
     );
   }
 

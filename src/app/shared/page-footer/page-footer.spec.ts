@@ -9,7 +9,7 @@ describe('Page footer Component', () => {
       {
         declarations: [PageFooterComponent],
       },
-      { ignoreShareModule: true }
+      { ignoreShareModule: true },
     );
   });
 
@@ -18,7 +18,7 @@ describe('Page footer Component', () => {
     fixture.detectChanges();
     expect(
       fixture.debugElement.query(By.css('.footer')).nativeElement.textContent
-        .length
+        .length,
     ).toBeGreaterThan(0);
   });
 });

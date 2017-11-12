@@ -61,7 +61,7 @@ export class CollapseDirective implements OnChanges {
     this.renderer.setStyle(
       this.elementRef.nativeElement,
       'overflow',
-      'visible'
+      'visible',
     );
     this.renderer.setStyle(this.elementRef.nativeElement, 'height', 'auto');
   }

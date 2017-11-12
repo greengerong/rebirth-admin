@@ -22,7 +22,7 @@ describe('MenuBarComponent', () => {
           },
         ],
       }).compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {
@@ -51,7 +51,7 @@ describe('MenuBarComponent', () => {
       const component = fixture.componentInstance;
       (component as any).router = { url };
       expect(component.shouldShowUpArrow(url)).toBeTruthy();
-    })
+    }),
   );
 
   it(
@@ -63,7 +63,7 @@ describe('MenuBarComponent', () => {
 
       expect(component.isTextMenuBarOpen).toBeTruthy();
       expect(component.isIconMenuBarOpen).toBeTruthy();
-    })
+    }),
   );
 
   it(
@@ -76,7 +76,7 @@ describe('MenuBarComponent', () => {
 
       expect(component.isTextMenuBarOpen).toBeFalsy();
       expect(component.isIconMenuBarOpen).toBeTruthy();
-    })
+    }),
   );
 
   it(
@@ -91,6 +91,6 @@ describe('MenuBarComponent', () => {
 
       expect(component.isTextMenuBarOpen).toBeTruthy();
       expect(component.isTextMenuBarOpen).toBeTruthy();
-    })
+    }),
   );
 });

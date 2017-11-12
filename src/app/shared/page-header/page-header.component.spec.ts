@@ -13,9 +13,9 @@ describe('PageHeaderComponent', () => {
         {
           declarations: [PageHeaderComponent],
         },
-        { ignoreShareModule: true }
+        { ignoreShareModule: true },
       ).compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe('PageHeaderComponent', () => {
 
   it('should render page header', () => {
     expect(fixture.debugElement.nativeElement.textContent).toContain(
-      'page-header works'
+      'page-header works',
     );
   });
 });

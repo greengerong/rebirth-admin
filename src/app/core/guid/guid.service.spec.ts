@@ -14,13 +14,13 @@ describe('GuidService', () => {
     'should generate a new id',
     inject([GuidService], (service: GuidService) => {
       expect(service.newId()).toBeDefined();
-    })
+    }),
   );
 
   it(
     'should generate different id',
     inject([GuidService], (service: GuidService) => {
       expect(service.newId()).not.toEqual(service.newId());
-    })
+    }),
   );
 });

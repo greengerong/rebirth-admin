@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class LoginService extends RebirthHttp {
   constructor(
     http: HttpClient,
-    private authorizationService: AuthorizationService
+    private authorizationService: AuthorizationService,
   ) {
     super(http);
   }

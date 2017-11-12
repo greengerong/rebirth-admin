@@ -12,7 +12,7 @@ export class ReStorageService {
   save(key: string, value: any) {
     return this.storageService.put(
       { pool: key, key: ReStorageService.STORAGE_VALUE_KEY },
-      value
+      value,
     );
   }
 

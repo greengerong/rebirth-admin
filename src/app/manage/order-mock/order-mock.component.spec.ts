@@ -11,7 +11,7 @@ describe('OrderMockComponent', () => {
       TestBed.configureTestingModule({
         declarations: [OrderMockComponent],
       }).compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {

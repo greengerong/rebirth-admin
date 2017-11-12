@@ -21,7 +21,7 @@ describe('CollapseDirective', () => {
           },
         })
         .compileComponents();
-    })
+    }),
   );
 
   beforeEach(() => {
@@ -39,7 +39,7 @@ describe('CollapseDirective', () => {
       const $element = fixture.debugElement.query(By.css('#collapseHost'));
 
       expect($element.styles.display).toEqual('none');
-    })
+    }),
   );
 
   it(
@@ -53,6 +53,6 @@ describe('CollapseDirective', () => {
       expect($element.styles.overflow).toEqual('visible');
       expect($element.styles.height).toEqual('auto');
       expect($element.styles.display).toEqual('block');
-    })
+    }),
   );
 });
