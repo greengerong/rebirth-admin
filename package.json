@@ -11,18 +11,28 @@
     "serve": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "lint-fix": "tslint -c tslint.json \"src/**/*.ts\"  --fix",
-    "test": "ng lint && ng test --watch=false --single-run=true --code-coverage",
+    "test":
+      "ng lint && ng test --watch=false --single-run=true --code-coverage",
     "ut": "ng test --watch=true --single-run=false --browsers=Chrome",
     "e2e": "ng e2e",
     "i18n:extract": "ng-xi18n",
     "build-electron": "ng build --base-href ./ && cp src/electron/* dist",
     "electron-run": "npm run build-electron && electron dist",
     "electron": "npm-run-all --parallel mock electron-run",
-    "electron-pack": "npm run build-electron && electron-packager dist --out dist/electron",
-    "docs:serve": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b / -d ./compodocs/ --hideGenerator -s",
-    "docs:gen": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
-    "github:deploy": "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
-    "prepush": "npm test"
+    "electron-pack":
+      "npm run build-electron && electron-packager dist --out dist/electron",
+    "docs:serve":
+      "compodoc ./src/app/ -p ./src/tsconfig.app.json -b / -d ./compodocs/ --hideGenerator -s",
+    "docs:gen":
+      "compodoc ./src/app/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
+    "github:deploy":
+      "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
+    "precommit": "lint-staged",
+    "prepush": "npm test",
+    "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}"
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,ts}": ["prettier --write", "git add"]
   },
   "private": true,
   "dependencies": {
@@ -73,7 +83,10 @@
     "karma-istanbul-threshold": "^1.2.2",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^5.0.0",
     "npm-run-all": "^4.1.1",
+    "onchange": "^3.2.1",
+    "prettier": "1.8.2",
     "protractor": "^5.1.2",
     "stubby": "^4.0.0",
     "sw-precache": "^5.2.0",
