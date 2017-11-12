@@ -1,8 +1,10 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "tslint-plugin-prettier"
   ],
   "rules": {
+    "prettier": [true, { "singleQuote": true, "trailingComma": "all" }],
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -138,5 +140,8 @@
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "invoke-injectable": true
-  }
+  },
+    "extends": [
+    "tslint-config-prettier"
+  ]
 }
