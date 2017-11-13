@@ -11,26 +11,20 @@
     "serve": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "lint-fix": "tslint -c tslint.json \"src/**/*.ts\"  --fix",
-    "test":
-      "ng lint && ng test --watch=false --single-run=true --code-coverage",
+    "test": "ng lint && ng test --watch=false --single-run=true --code-coverage",
     "ut": "ng test --watch=true --single-run=false --browsers=Chrome",
     "e2e": "ng e2e",
     "i18n:extract": "ng-xi18n",
     "build-electron": "ng build --base-href ./ && cp src/electron/* dist",
     "electron-run": "npm run build-electron && electron dist",
     "electron": "npm-run-all --parallel mock electron-run",
-    "electron-pack":
-      "npm run build-electron && electron-packager dist --out dist/electron",
-    "docs:serve":
-      "compodoc ./src/app/ -p ./src/tsconfig.app.json -b / -d ./compodocs/ --hideGenerator -s",
-    "docs:gen":
-      "compodoc ./src/app/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
-    "github:deploy":
-      "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
+    "electron-pack": "npm run build-electron && electron-packager dist --out dist/electron",
+    "docs:serve": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b / -d ./compodocs/ --hideGenerator -s",
+    "docs:gen": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
+    "github:deploy": "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
     "precommit": "lint-staged",
     "prepush": "npm test",
-    "prettier-watch":
-      "onchange '**/*.ts' -- prettier --write --single-quote --trailing-comma=all {{changed}}",
+    "prettier-watch": "onchange '**/*.ts' -- prettier --write --single-quote --trailing-comma=all {{changed}}",
     "prettier": "prettier --parser typescript --single-quote --trailing-comma=all --write \"./**/*.ts\""
   },
   "lint-staged": {
