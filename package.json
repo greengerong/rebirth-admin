@@ -22,6 +22,7 @@
     "docs:serve": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b / -d ./compodocs/ --hideGenerator -s",
     "docs:gen": "compodoc ./src/app/ -p ./src/tsconfig.app.json -b /rebirth-admin/compodocs/ -d ./dist/compodocs/ --hideGenerator",
     "github:deploy": "npm run build && npm run docs:gen && ngh --message \"rebirth admin deploy\" && rm -rf ./dist",
+    "cimmit-message": "chmod +x ./build/commit-msg.sh && ./build/commit-msg.sh",
     "precommit": "lint-staged",
     "prepush": "npm test",
     "prettier-watch": "onchange '**/*.ts' -- prettier --write --single-quote --trailing-comma=all {{changed}}",
