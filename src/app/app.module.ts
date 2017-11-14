@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'rebirth-admin' }),
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
