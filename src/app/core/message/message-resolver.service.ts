@@ -13,6 +13,7 @@ export class MessageResolver {
     const msgParams = {
       field,
       key,
+      label: field,
       ...params,
     };
 
@@ -32,7 +33,7 @@ export class MessageResolver {
     return message ? this.formatMessage(message, params) : '';
   }
 
-  private formatMessage(message: string, params: { [key: string]: any } = {}) {
+  private formatMessage(message: string, params: { [key: string]: any }) {
     const error = Object.keys(params).reduce(
       (msg, key) =>
         msg.replace(new RegExp(`{${key}}`, 'gi'), params[key].toString()),
