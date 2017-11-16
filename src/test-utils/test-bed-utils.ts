@@ -38,7 +38,6 @@ export class TestBedUtils {
       ...(options.ignoreShareModule ? [] : [SharedModule]),
       RouterModule.forRoot(options.routes || []),
     ];
-    moduleDef.declarations = [moduleDef.declarations || [], TestComponent];
     moduleDef.providers = [
       ...(moduleDef.providers || []),
       { provide: APP_BASE_HREF, useValue: '/' },

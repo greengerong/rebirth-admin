@@ -21,7 +21,7 @@ import { MessageResolver } from '../../core/message/message-resolver.service';
 })
 export class FieldErrorComponent implements OnInit {
   @Input() field: string;
-  @Input() label: string;
+  @Input() label: string = null;
   fromGroup: FormGroup;
 
   constructor(
