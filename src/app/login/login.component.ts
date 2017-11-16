@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { ValidationService } from '../core/validation/validation.service';
+import { MessageResolver } from '../core/message/message-resolver.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private validationService: ValidationService,
+    private messageResolver: MessageResolver,
   ) {
     this.loginForm = fb.group({
       username: ['', Validators.required],
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginErrorMessage = this.validationService.getMessage(
+    this.loginErrorMessage = this.messageResolver.getMessage(
       'validation.login',
     );
   }

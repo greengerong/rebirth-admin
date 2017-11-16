@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ValidationService {
+export class MessageResolver {
   messages = require('./message.json');
   validationPrefix = 'validation';
 

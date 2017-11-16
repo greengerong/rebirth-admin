@@ -11,7 +11,7 @@ import {
   FormGroupDirective,
   NgForm,
 } from '@angular/forms';
-import { ValidationService } from '../../core/validation/validation.service';
+import { MessageResolver } from '../../core/message/message-resolver.service';
 
 @Component({
   selector: 'app-field-error',
@@ -27,7 +27,7 @@ export class FieldErrorComponent implements OnInit {
   constructor(
     @Optional() private ngForm: NgForm,
     @Optional() private formGroupDirective: FormGroupDirective,
-    private validationService: ValidationService,
+    private messageResolver: MessageResolver,
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class FieldErrorComponent implements OnInit {
     const control = this.fromGroup.controls[this.field];
     if (control && control.errors) {
       const key = Object.keys(control.errors)[0]; // only show first error.
-      return this.validationService.getValidationMessage(this.field, key, {
+      return this.messageResolver.getValidationMessage(this.field, key, {
         label: this.label || this.field,
         ...control.getError(key),
       });
