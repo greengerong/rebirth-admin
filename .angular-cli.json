@@ -55,7 +55,7 @@
       "exclude": [
         "src/test-utils/**",
         "**/field-error/**",
-        "**/validation/**"
+        "**/message/**"
       ]
     }
   },
