@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { RebirthNGModule } from 'rebirth-ng';
 import { RebirthPermissionModule } from 'rebirth-permission';
@@ -14,6 +14,7 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     ReactiveFormsModule,
     RebirthNGModule,
     RebirthPermissionModule,
@@ -27,6 +28,7 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
   ],
   exports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     RebirthNGModule,
     RebirthPermissionModule,
@@ -34,6 +36,7 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     PageHeaderComponent,
     CollapseDirective,
     MenuBarComponent,
+    FieldErrorComponent,
   ],
   providers: [],
 })

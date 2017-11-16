@@ -1,3 +1,22 @@
-<p>
-  order-mock works!
-</p>
+<div>
+  <!--<form>-->
+  <!--<div class="form-group" [ngClass]="{'has-error': nameField.invalid}">-->
+  <!--<label for="name">Name</label>-->
+  <!--<input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">-->
+  <!--<app-field-error field="name" #nameField="fieldError"></app-field-error>-->
+  <!--</div>-->
+
+  <!--</form>-->
+
+  <hr>
+
+  <form [formGroup]="heroForm" novalidate>
+    <div class="form-group" [ngClass]="{'has-error': nameField1.invalid}">
+
+      <label>Name</label>
+      <input type="text" name="name" class="form-control" class="form-control" formControlName="name">
+
+      <app-field-error field="name" #nameField1="fieldError"></app-field-error>
+    </div>
+  </form>
+</div>

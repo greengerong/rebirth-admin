@@ -30,7 +30,7 @@
     "prettier": "prettier --parser typescript --single-quote --trailing-comma=all --write \"./**/*.ts\""
   },
   "lint-staged": {
-    "*.{js,css,scss,ts}": [
+    "*.{js,css,ts}": [
       "prettier --write --single-quote --trailing-commaall",
       "git add"
     ]

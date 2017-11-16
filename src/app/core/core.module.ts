@@ -10,6 +10,7 @@ import {
 import { ReStorageService } from './storage/storage.service';
 import { GuidService } from './guid/guid.service';
 import { LoadingService } from './loading/loading.service';
+import { ValidationService } from './validation/validation.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { LoadingService } from './loading/loading.service';
     RebirthNGModule.forRoot(),
     RebirthPermissionModule.forRoot({ loginPage: '/login' }),
   ],
-  providers: [LoadingService, GuidService, ReStorageService],
+  providers: [LoadingService, GuidService, ReStorageService, ValidationService],
   exports: [],
 })
 export class CoreModule {
