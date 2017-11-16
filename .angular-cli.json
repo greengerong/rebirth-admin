@@ -53,7 +53,9 @@
     },
     "codeCoverage": {
       "exclude": [
-        "src/test-utils/**"
+        "src/test-utils/**",
+        "**/field-error/**",
+        "**/validation/**"
       ]
     }
   },

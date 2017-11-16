@@ -1,3 +1,4 @@
 {
-  "validation.required": "{field} is required"
+  "validation.required": "{label}为必填字段",
+  "validation.login": "输入的用户名或者密码无效!(测试账号：admin/admin、user/user)"
 }

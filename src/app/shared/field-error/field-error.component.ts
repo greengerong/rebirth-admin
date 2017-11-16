@@ -21,6 +21,7 @@ import { ValidationService } from '../../core/validation/validation.service';
 })
 export class FieldErrorComponent implements OnInit {
   @Input() field: string;
+  @Input() label: string;
   fromGroup: FormGroup;
 
   constructor(
@@ -47,11 +48,10 @@ export class FieldErrorComponent implements OnInit {
     const control = this.fromGroup.controls[this.field];
     if (control && control.errors) {
       const key = Object.keys(control.errors)[0]; // only show first error.
-      return this.validationService.getMessage(
-        this.field,
-        key,
-        control.getError(key),
-      );
+      return this.validationService.getValidationMessage(this.field, key, {
+        label: this.label || this.field,
+        ...control.getError(key),
+      });
     }
   }
 }

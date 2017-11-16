@@ -3,19 +3,33 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ValidationService {
   messages = require('./message.json');
-  prefix = 'validation';
+  validationPrefix = 'validation';
 
-  getMessage(field: string, key: string, params: { [key: string]: any } = {}) {
-    let message = this.messages[`${this.prefix}.${field}.${key}`];
-    if (!message) {
-      message = this.messages[`${this.prefix}.${key}`];
-    }
-
-    return this.formatMessage(message || 'No message config', {
+  getValidationMessage(
+    field: string,
+    key: string,
+    params: { [key: string]: any } = {},
+  ) {
+    const msgParams = {
       field,
       key,
       ...params,
-    });
+    };
+
+    let message = this.getMessage(
+      `${this.validationPrefix}.${field}.${key}`,
+      msgParams,
+    );
+    if (!message) {
+      message = this.getMessage(`${this.validationPrefix}.${key}`, msgParams);
+    }
+
+    return message;
+  }
+
+  getMessage(msgKey: string, params: { [key: string]: any } = {}) {
+    const message = this.messages[msgKey];
+    return message ? this.formatMessage(message, params) : '';
   }
 
   private formatMessage(message: string, params: { [key: string]: any } = {}) {
