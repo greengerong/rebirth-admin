@@ -1,12 +1,11 @@
 <div>
-  <!--<form>-->
-  <!--<div class="form-group" [ngClass]="{'has-error': nameField.invalid}">-->
-  <!--<label for="name">Name</label>-->
-  <!--<input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">-->
-  <!--<app-field-error field="name" #nameField="fieldError"></app-field-error>-->
-  <!--</div>-->
-
-  <!--</form>-->
+  <form>
+    <div class="form-group" [ngClass]="{'has-error': nameField.invalid}">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+      <app-field-error field="name" #nameField="fieldError"></app-field-error>
+    </div>
+  </form>
 
   <hr>
 

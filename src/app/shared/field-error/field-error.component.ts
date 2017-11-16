@@ -22,9 +22,6 @@ import { ValidationService } from '../../core/validation/validation.service';
 export class FieldErrorComponent implements OnInit {
   @Input() field: string;
   fromGroup: FormGroup;
-  control: AbstractControl;
-  status: string;
-  invalid: boolean;
 
   constructor(
     @Optional() private ngForm: NgForm,
@@ -32,28 +29,28 @@ export class FieldErrorComponent implements OnInit {
     private validationService: ValidationService,
   ) {}
 
-  // ngOnInit(): void {
   ngOnInit(): void {
     this.fromGroup = this.ngForm
       ? this.ngForm.form
       : this.formGroupDirective.form;
-    this.control = this.fromGroup.controls[this.field];
+  }
 
-    if (this.control) {
-      this.control.statusChanges.subscribe(status => {
-        this.status = status;
-        this.invalid = this.control.touched && this.control.invalid;
-      });
+  get invalid(): boolean {
+    if (this.fromGroup) {
+      const control = this.fromGroup.controls[this.field];
+      return control ? control.touched && control.invalid : false;
     }
+    return false;
   }
 
   getErrorMessage() {
-    if (this.control && this.control.errors) {
-      const key = Object.keys(this.control.errors)[0]; // only show first error.
+    const control = this.fromGroup.controls[this.field];
+    if (control && control.errors) {
+      const key = Object.keys(control.errors)[0]; // only show first error.
       return this.validationService.getMessage(
         this.field,
         key,
-        this.control.getError(key),
+        control.getError(key),
       );
     }
   }
