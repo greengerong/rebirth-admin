@@ -27,6 +27,7 @@ export class LoginService extends RebirthHttp {
   }
 
   @POST('login')
+  // @loading(true)
   private innerLogin(@Body body): Observable<CurrentUser> {
     return null;
   }

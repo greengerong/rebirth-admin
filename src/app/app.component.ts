@@ -7,6 +7,7 @@ import { AuthorizationService } from 'rebirth-permission';
 import { LoadingService } from './core/loading/loading.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ignoreLoading } from './core/loading/loading';
 
 @Component({
   selector: 'app-root',
@@ -41,10 +42,7 @@ export class AppComponent {
       .baseUrl(environment.api.host)
       .addInterceptor({
         request: request => {
-          const polling = request.params
-            ? request.params.get('polling')
-            : false;
-          if (polling) {
+          if (ignoreLoading(request)) {
             return;
           }
           this.loadingService.show();
