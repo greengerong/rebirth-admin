@@ -40,7 +40,13 @@ export class AppComponent {
     this.rebirthHttpProvider
       .baseUrl(environment.api.host)
       .addInterceptor({
-        request: () => {
+        request: request => {
+          const polling = request.params
+            ? request.params.get('polling')
+            : false;
+          if (polling) {
+            return;
+          }
           this.loadingService.show();
         },
         response: () => {

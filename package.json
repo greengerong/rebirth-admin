@@ -52,7 +52,7 @@
     "immutable": "^3.8.1",
     "normalize.css": "^7.0.0",
     "rebirth-event-source": "^5.0.1",
-    "rebirth-http": "^5.0.0",
+    "rebirth-http": "^5.0.1",
     "rebirth-ng": "^5.0.0",
     "rebirth-permission": "^5.0.1",
     "rebirth-storage": "^5.0.1",
