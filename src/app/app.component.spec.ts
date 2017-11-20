@@ -11,6 +11,7 @@ import {
   HttpErrorResponse,
   HttpRequest,
   HttpResponse,
+  HttpParams,
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -104,6 +105,31 @@ describe('AppComponent', () => {
 
           expect(loadingService.show).toHaveBeenCalled();
           expect(authorizationService.getCurrentUser).toHaveBeenCalled();
+        },
+      ),
+    ),
+  );
+
+  it(
+    `should ignore loading when request params with polling`,
+    async(
+      inject(
+        [RebirthHttpProvider, LoadingService, AuthorizationService],
+        (
+          rebirthHttpProvider: RebirthHttpProvider,
+          loadingService: LoadingService,
+          authorizationService: AuthorizationService,
+        ) => {
+          const request = new HttpRequest<any>('GET', 'url', {
+            params: new HttpParams().append('polling', 'true'),
+          });
+
+          rebirthHttpProvider
+            .getInterceptors()
+            .filter(item => item.request)
+            .reduce((req, item) => item.request(req) || req, request);
+
+          expect(loadingService.show).not.toHaveBeenCalled();
         },
       ),
     ),

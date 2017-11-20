@@ -54,8 +54,7 @@
     "codeCoverage": {
       "exclude": [
         "src/test-utils/**",
-        "**/field-error/**",
-        "**/loading/loading.ts"
+        "**/field-error/**"
       ]
     }
   },

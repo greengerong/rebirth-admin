@@ -83,7 +83,9 @@ describe('MenuBarComponent', () => {
     'should show text menu bar when click icon menu bar',
     inject([], () => {
       const component = fixture.componentInstance as any;
-      const mockEvent = { preventDefault: () => {} };
+      const mockEvent = {
+        preventDefault: () => {},
+      };
       component.isTextMenuBarOpen = false;
       component.isIconMenuBarOpen = true;
       component.windowRef.innerWidth = MenuBarComponent.MIN_MIDDLE_SCREEN + 10;
@@ -91,6 +93,21 @@ describe('MenuBarComponent', () => {
 
       expect(component.isTextMenuBarOpen).toBeTruthy();
       expect(component.isTextMenuBarOpen).toBeTruthy();
+    }),
+  );
+
+  it(
+    'should update menu status when window resize',
+    inject([], () => {
+      const component = fixture.componentInstance as any;
+      let resizeEventCall = false;
+      component.windowResize.subscribe(() => {
+        resizeEventCall = true;
+      });
+
+      window.dispatchEvent(new Event('resize'));
+
+      expect(resizeEventCall).toBeTruthy();
     }),
   );
 });

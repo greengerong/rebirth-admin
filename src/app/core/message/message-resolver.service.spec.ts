@@ -20,7 +20,7 @@ describe('MessageResolver', () => {
   );
 
   it(
-    'should get validation message by field & validation key',
+    'should get validation validation message by field & validation key',
     inject([MessageResolver], (service: MessageResolver) => {
       const message = service.getValidationMessage('name', 'required');
       expect(message).toEqual('Name为必填字段');
@@ -28,12 +28,21 @@ describe('MessageResolver', () => {
   );
 
   it(
-    'should get message by message key with label params',
+    'should get validation message by message key with label params',
     inject([MessageResolver], (service: MessageResolver) => {
       const message = service.getValidationMessage('name', 'required', {
         label: '姓名',
       });
       expect(message).toEqual('姓名为必填字段');
+    }),
+  );
+
+  it(
+    'should get validation message by special field message',
+    inject([MessageResolver], (service: MessageResolver) => {
+      service.messages['validation.name.required'] = 'special field message';
+      const message = service.getValidationMessage('name', 'required');
+      expect(message).toEqual('Special field message');
     }),
   );
 });
