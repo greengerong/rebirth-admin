@@ -53,7 +53,7 @@
     "normalize.css": "^7.0.0",
     "rebirth-event-source": "^5.0.1",
     "rebirth-http": "^5.0.1",
-    "rebirth-ng": "^5.0.0",
+    "rebirth-ng": "^5.0.1",
     "rebirth-permission": "^5.0.1",
     "rebirth-storage": "^5.0.1",
     "rxjs": "^5.5.2",
@@ -63,7 +63,7 @@
   "devDependencies": {
     "@angular/cli": "^1.5.0",
     "@angular/compiler-cli": "^5.1.0-beta.0",
-    "@compodoc/compodoc": "^1.0.0-beta.10",
+    "@compodoc/compodoc": "^1.0.4",
     "@types/jasmine": "^2.5.54",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^8.0.25",
