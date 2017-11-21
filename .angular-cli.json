@@ -53,8 +53,7 @@
     },
     "codeCoverage": {
       "exclude": [
-        "src/test-utils/**",
-        "**/field-error/**"
+        "src/test-utils/**"
       ]
     }
   },

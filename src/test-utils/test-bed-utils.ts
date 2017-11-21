@@ -4,7 +4,7 @@ import { SharedModule } from '../app/shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { TestBed, TestModuleMetadata } from '@angular/core/testing';
 
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -43,12 +43,20 @@ export class TestBedUtils {
       { provide: APP_BASE_HREF, useValue: '/' },
     ];
     moduleDef.declarations = [...(moduleDef.declarations || []), TestComponent];
-
+    moduleDef.schemas = [NO_ERRORS_SCHEMA];
     return TestBed.configureTestingModule(moduleDef);
   }
 
   static input($elm: DebugElement, value: string) {
     $elm.nativeElement.value = value;
-    $elm.nativeElement.dispatchEvent(new Event('input'));
+    TestBedUtils.dispatchEvent($elm, 'input');
+  }
+
+  static dispatchEvent(
+    $elm: DebugElement,
+    event: string,
+    eventInitDict?: EventInit,
+  ) {
+    $elm.nativeElement.dispatchEvent(new Event(event, eventInitDict));
   }
 }
