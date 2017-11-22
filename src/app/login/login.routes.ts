@@ -5,5 +5,6 @@ export const ROUTER_CONFIG: Routes = [
   {
     path: '',
     component: LoginComponent,
+    data: { title: 'Login' },
   },
 ];

@@ -8,6 +8,7 @@ import { LoadingService } from './core/loading/loading.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ignoreLoading } from './core/loading/loading';
+import { TitleService } from './core/title/title.service';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +29,14 @@ export class AppComponent {
     private loadingService: LoadingService,
     private router: Router,
     private rebirthHttpProvider: RebirthHttpProvider,
+    private titleService: TitleService,
   ) {
     this.applicationSetup();
   }
 
   private applicationSetup() {
     this.rebirthNGConfig.rootContainer = this.viewContainerRef; // this.rebirthNGConfig.extend(REBIRTH_UI_I18N_ZHCN); i18n
+    this.titleService.register();
     this.apiSetup();
   }
 

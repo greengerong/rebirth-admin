@@ -11,6 +11,7 @@ import { ReStorageService } from './storage/storage.service';
 import { GuidService } from './guid/guid.service';
 import { LoadingService } from './loading/loading.service';
 import { MessageResolver } from './message/message-resolver.service';
+import { TitleService } from './title/title.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,13 @@ import { MessageResolver } from './message/message-resolver.service';
     RebirthNGModule.forRoot(),
     RebirthPermissionModule.forRoot({ loginPage: '/login' }),
   ],
-  providers: [LoadingService, GuidService, ReStorageService, MessageResolver],
+  providers: [
+    LoadingService,
+    GuidService,
+    ReStorageService,
+    MessageResolver,
+    TitleService,
+  ],
   exports: [],
 })
 export class CoreModule {

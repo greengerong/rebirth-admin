@@ -12,10 +12,18 @@ export const ROUTER_CONFIG: Routes = [
     children: [
       // can use role AuthRolePermission
       { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'home', component: OrderMockComponent },
-      { path: 'order', component: OrderMockComponent },
-      { path: 'user', component: UserMockComponent },
-      { path: 'document', component: UserMockComponent },
+      { path: 'home', component: OrderMockComponent, data: { title: 'Home' } },
+      {
+        path: 'order',
+        component: OrderMockComponent,
+        data: { title: 'Order' },
+      },
+      { path: 'user', component: UserMockComponent, data: { title: 'User' } },
+      {
+        path: 'document',
+        component: UserMockComponent,
+        data: { title: 'Document' },
+      },
     ],
   },
 ];
