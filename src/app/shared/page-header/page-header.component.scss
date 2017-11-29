@@ -1,0 +1,25 @@
+
+.main {
+  height: 4.75rem;
+  padding: 1.25rem 2.5rem;
+  background: #3d3780;
+  color: #fff;
+
+  & > * {
+    display: inline-block;
+  }
+}
+
+.expandor {
+  padding: 0 1.25rem;
+  cursor: pointer;
+
+}
+
+.logo-area {
+  padding: 0 1.25rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+  border-left: 1px solid #342e73;
+  white-space: nowrap;
+}

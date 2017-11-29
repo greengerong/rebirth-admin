@@ -1,6 +1,5 @@
-<app-page-header></app-page-header>
-<!--<re-menu-bar [menuOptions]="menus" [type]="'sidebar'"></re-menu-bar>-->
-<button class="btn btn-primary" (click)="menuBar.toggle()">toggle</button>
+<app-page-header (onExpand)="menuBar.toggle()"></app-page-header>
+
 <app-menu-bar #menuBar="menuBar" [menuConfig]="menuConfig"></app-menu-bar>
 
 <div class="container main">
