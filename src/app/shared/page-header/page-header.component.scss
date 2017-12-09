@@ -1,9 +1,10 @@
+@import "../../../styles/common";
 
 .main {
   height: 4.75rem;
   padding: 1.25rem 2.5rem;
-  background: #3d3780;
-  color: #fff;
+  background: $color-purple;
+  color: $color-white;
 
   & > * {
     display: inline-block;
@@ -11,15 +12,12 @@
 }
 
 .expandor {
-  padding: 0 1.25rem;
   cursor: pointer;
-
+  padding: 0 1.25rem;
 }
 
 .logo-area {
-  padding: 0 1.25rem;
   font-size: 1.75rem;
   font-weight: 500;
-  border-left: 1px solid #342e73;
   white-space: nowrap;
 }
