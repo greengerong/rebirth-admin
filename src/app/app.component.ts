@@ -12,13 +12,7 @@ import { TitleService } from './core/title/title.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div class="root-router-outlet">
-      <router-outlet></router-outlet>
-    </div>
-    <app-page-footer></app-page-footer>
-
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
