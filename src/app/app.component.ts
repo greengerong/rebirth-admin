@@ -30,7 +30,7 @@ export class AppComponent {
 
   private applicationSetup() {
     this.rebirthNGConfig.rootContainer = this.viewContainerRef; // this.rebirthNGConfig.extend(REBIRTH_UI_I18N_ZHCN); i18n
-    this.titleService.register();
+    this.titleService.register(); // enable config different title for each route
     this.apiSetup();
   }
 
