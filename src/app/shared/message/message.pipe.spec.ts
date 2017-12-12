@@ -9,7 +9,7 @@ describe('MessagePipe', () => {
     const pipe = new MessagePipe(messageResolver);
     const key = 'key';
     const msg = 'message';
-    messageResolver.and.returnValue(msg);
+    messageResolver.getMessage.and.returnValue(msg);
 
     expect(pipe.transform(key)).toEqual(msg);
   });
