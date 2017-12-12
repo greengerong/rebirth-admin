@@ -4,7 +4,7 @@
     <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
       <re-alert-box type="danger" *ngIf="showError">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        {{loginErrorMessage}}
+        {{'validation.login' | message}}
       </re-alert-box>
       <div class="form-group" [ngClass]="{'has-error': usernameField.invalid}">
         <label for="username">用户名</label>
