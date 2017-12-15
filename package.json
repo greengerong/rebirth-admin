@@ -11,7 +11,7 @@
     "serve": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "lint-fix": "tslint -c tslint.json \"src/**/*.ts\"  --fix",
-    "test": "ng lint && ng test --watch=false --single-run=true --code-coverage",
+    "test": "ng lint && ng test --watch=false --single-run=true  --browsers ChromeHeadless --code-coverage",
     "ut": "ng test --watch=true --single-run=false --browsers=Chrome",
     "e2e": "ng e2e",
     "i18n:extract": "ng-xi18n",
