@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-page-header',
@@ -7,6 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class PageHeaderComponent {
   @Output() onExpand = new EventEmitter();
+
+  @ViewChild('volumeTemplate') volumeTemplate;
+  dummyName = '管理员名称';
 
   handleExpandClick() {
     this.onExpand.emit();

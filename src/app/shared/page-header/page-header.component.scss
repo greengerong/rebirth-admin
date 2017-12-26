@@ -22,3 +22,40 @@
   font-weight: 500;
   white-space: nowrap;
 }
+
+.user-info {
+  position: absolute;
+  right: 5rem;
+
+  & > .open > .dropdown-menu {
+    display: block;
+  }
+}
+
+.username {
+  color: #fff;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  max-height: 600px;
+  overflow: auto;
+}
+
+li {
+  a {
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: transparent;
+
+    &:hover {
+      text-decoration: none;
+      color: #141414;
+      background-color: #eeeeee;
+    }
+  }
+}
