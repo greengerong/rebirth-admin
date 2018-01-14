@@ -7,6 +7,7 @@ import { TestBed, TestModuleMetadata } from '@angular/core/testing';
 import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { setupTestBed } from './setup.spec';
 
 @Component({
   selector: 'app-test',
@@ -24,7 +25,7 @@ export class TestBedUtils {
       ignoreCoreModule?: boolean;
       routes?: Routes;
     },
-  ): typeof TestBed {
+  ): void {
     options = options || {
       ignoreCoreModule: false,
       ignoreShareModule: false,
@@ -44,7 +45,7 @@ export class TestBedUtils {
     ];
     moduleDef.declarations = [...(moduleDef.declarations || []), TestComponent];
     moduleDef.schemas = [NO_ERRORS_SCHEMA];
-    return TestBed.configureTestingModule(moduleDef);
+    setupTestBed(moduleDef);
   }
 
   static input($elm: DebugElement, value: string) {

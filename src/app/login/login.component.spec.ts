@@ -14,13 +14,9 @@ import { Router } from '@angular/router';
 describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBedUtils.configureTestingModule({
-        imports: [LoginModule],
-      }).compileComponents();
-    }),
-  );
+  TestBedUtils.configureTestingModule({
+    imports: [LoginModule],
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);

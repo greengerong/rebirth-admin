@@ -12,18 +12,15 @@ import { WindowRef } from 'rebirth-ng';
 
 describe('MenuBarComponent', () => {
   let fixture: ComponentFixture<MenuBarComponent>;
-  beforeEach(
-    async(() => {
-      TestBedUtils.configureTestingModule({
-        providers: [
-          {
-            provide: WindowRef,
-            useValue: { innerWidth: 0 },
-          },
-        ],
-      }).compileComponents();
-    }),
-  );
+
+  TestBedUtils.configureTestingModule({
+    providers: [
+      {
+        provide: WindowRef,
+        useValue: { innerWidth: 0 },
+      },
+    ],
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuBarComponent);

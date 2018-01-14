@@ -8,15 +8,11 @@ describe('PageHeaderComponent', () => {
   let component: PageHeaderComponent;
   let fixture: ComponentFixture<PageHeaderComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBedUtils.configureTestingModule(
-        {
-          declarations: [PageHeaderComponent],
-        },
-        { ignoreShareModule: true },
-      ).compileComponents();
-    }),
+  TestBedUtils.configureTestingModule(
+    {
+      declarations: [PageHeaderComponent],
+    },
+    { ignoreShareModule: true },
   );
 
   beforeEach(() => {

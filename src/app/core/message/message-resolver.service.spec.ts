@@ -3,10 +3,8 @@ import { TestBedUtils } from '../../../test-utils/test-bed-utils';
 import { MessageResolver } from './message-resolver.service';
 
 describe('MessageResolver', () => {
-  beforeEach(() => {
-    TestBedUtils.configureTestingModule({
-      providers: [MessageResolver],
-    });
+  TestBedUtils.configureTestingModule({
+    providers: [MessageResolver],
   });
 
   it(

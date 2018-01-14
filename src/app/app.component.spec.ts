@@ -17,34 +17,37 @@ import { Router } from '@angular/router';
 
 describe('AppComponent', () => {
   let fixture;
+
+  TestBedUtils.configureTestingModule({
+    declarations: [AppComponent],
+    providers: [
+      {
+        provide: AuthorizationService,
+        useValue: jasmine.createSpyObj('authorizationService', [
+          'getCurrentUser',
+          'setStorageType',
+        ]),
+      },
+    ],
+  });
+
   beforeEach(
     async(() => {
-      TestBedUtils.configureTestingModule({
-        declarations: [AppComponent],
-        providers: [
-          {
-            provide: LoadingService,
-            useValue: jasmine.createSpyObj('loadingService', ['show', 'hide']),
-          },
-          {
-            provide: AuthorizationService,
-            useValue: jasmine.createSpyObj('authorizationService', [
-              'getCurrentUser',
-              'setStorageType',
-            ]),
-          },
-        ],
-      }).compileComponents();
-
       fixture = TestBed.createComponent(AppComponent);
       fixture.detectChanges();
     }),
   );
 
   beforeEach(
-    inject([Router], (router: Router) => {
-      router.navigateByUrl = jasmine.createSpy('router');
-    }),
+    inject(
+      [Router, LoadingService],
+      (router: Router, loadingService: LoadingService) => {
+        router.navigateByUrl = jasmine.createSpy('router');
+
+        loadingService.show = jasmine.createSpy('show');
+        loadingService.hide = jasmine.createSpy('hide');
+      },
+    ),
   );
 
   it(

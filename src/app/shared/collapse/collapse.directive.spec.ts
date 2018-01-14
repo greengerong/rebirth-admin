@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  inject,
+} from '@angular/core/testing';
 import {
   TestBedUtils,
   TestComponent,
@@ -6,27 +12,22 @@ import {
 import { CollapseDirective } from './collapse.directive';
 import { By } from '@angular/platform-browser';
 
-describe('CollapseDirective', () => {
-  let fixture: ComponentFixture<TestComponent>;
+@Component({
+  template: `<div id="collapseHost" [appCollapse]="props[\'collapse\']">collapse test</div>`,
+})
+class TestCollapseDirectiveComponent {
+  props: { [key: string]: any } = {};
+}
 
-  beforeEach(
-    async(() => {
-      TestBedUtils.configureTestingModule({
-        declarations: [],
-      })
-        .overrideComponent(TestComponent, {
-          set: {
-            template:
-              '<div id="collapseHost" [appCollapse]="props[\'collapse\']">collapse test</div>',
-          },
-        })
-        .compileComponents();
-    }),
-  );
+describe('CollapseDirective', () => {
+  let fixture: ComponentFixture<TestCollapseDirectiveComponent>;
+
+  TestBedUtils.configureTestingModule({
+    declarations: [TestCollapseDirectiveComponent],
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
-
+    fixture = TestBed.createComponent(TestCollapseDirectiveComponent);
     fixture.detectChanges();
   });
 

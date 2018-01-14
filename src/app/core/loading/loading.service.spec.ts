@@ -10,16 +10,14 @@ describe('LoadingService', () => {
     'close',
   ]);
 
-  beforeEach(() => {
-    TestBedUtils.configureTestingModule({
-      providers: [
-        LoadingService,
-        {
-          provide: OverlayService,
-          useValue: overlayService,
-        },
-      ],
-    });
+  TestBedUtils.configureTestingModule({
+    providers: [
+      LoadingService,
+      {
+        provide: OverlayService,
+        useValue: overlayService,
+      },
+    ],
   });
 
   it(

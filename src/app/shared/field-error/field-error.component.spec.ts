@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import {
   async,
   ComponentFixture,
@@ -13,28 +14,25 @@ import { By } from '@angular/platform-browser';
 import { FormBuilder, Validators } from '@angular/forms';
 
 describe('FieldErrorComponent', () => {
-  let fixture: ComponentFixture<TestComponent>;
   describe('ReactiveFormsModule', () => {
-    beforeEach(
-      async(() => {
-        TestBedUtils.configureTestingModule({
-          declarations: [],
-        })
-          .overrideComponent(TestComponent, {
-            set: {
-              template: `<form [formGroup]="props.loginForm">
-                <input id="username" name="username" type="text" formControlName="username"/>
-                <app-field-error field="username" label="用户名" #usernameField="fieldError"></app-field-error>
-              </form>`,
-            },
-          })
-          .compileComponents();
-      }),
-    );
+    let fixture: ComponentFixture<TestFieldErrorComponent>;
+    @Component({
+      template: `<form [formGroup]="props.loginForm">
+                  <input id="username" name="username" type="text" formControlName="username"/>
+                  <app-field-error field="username" label="用户名" #usernameField="fieldError"></app-field-error>
+                </form>`,
+    })
+    class TestFieldErrorComponent {
+      props: { [key: string]: any } = {};
+    }
+
+    TestBedUtils.configureTestingModule({
+      declarations: [TestFieldErrorComponent],
+    });
 
     beforeEach(
       inject([FormBuilder], (fb: FormBuilder) => {
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(TestFieldErrorComponent);
         fixture.componentInstance.props.loginForm = fb.group({
           username: ['', Validators.required],
         });
@@ -109,26 +107,24 @@ describe('FieldErrorComponent', () => {
   });
 
   describe('FormsModule', () => {
-    beforeEach(
-      async(() => {
-        TestBedUtils.configureTestingModule({
-          declarations: [],
-        })
-          .overrideComponent(TestComponent, {
-            set: {
-              template: `<form>
-                <input id="username" name="username" type="text" [(ngModel)]="props.username" required/>
-                <app-field-error field="username" label="用户名" #usernameField="fieldError"></app-field-error>
-              </form>`,
-            },
-          })
-          .compileComponents();
-      }),
-    );
+    let fixture: ComponentFixture<TestFieldErrorComponent>;
+    @Component({
+      template: `<form>
+                  <input id="username" name="username" type="text" [(ngModel)]="props.username" required/>
+                  <app-field-error field="username" label="用户名" #usernameField="fieldError"></app-field-error>
+                </form>`,
+    })
+    class TestFieldErrorComponent {
+      props: { [key: string]: any } = {};
+    }
+
+    TestBedUtils.configureTestingModule({
+      declarations: [TestFieldErrorComponent],
+    });
 
     beforeEach(
       inject([], () => {
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(TestFieldErrorComponent);
         fixture.detectChanges();
       }),
     );
@@ -147,25 +143,24 @@ describe('FieldErrorComponent', () => {
   });
 
   describe('No FormControl register', () => {
-    beforeEach(
-      async(() => {
-        TestBedUtils.configureTestingModule({
-          declarations: [],
-        })
-          .overrideComponent(TestComponent, {
-            set: {
-              template: `<form>
-                <app-field-error field="username" label="用户名" #usernameField="fieldError"></app-field-error>
-              </form>`,
-            },
-          })
-          .compileComponents();
-      }),
-    );
+    let fixture: ComponentFixture<TestFieldErrorComponent>;
+
+    @Component({
+      template: `<form>
+                  <app-field-error field="username" label="用户名" #usernameField="fieldError"></app-field-error>
+                </form>`,
+    })
+    class TestFieldErrorComponent {
+      props: { [key: string]: any } = {};
+    }
+
+    TestBedUtils.configureTestingModule({
+      declarations: [TestFieldErrorComponent],
+    });
 
     beforeEach(
       inject([FormBuilder], (fb: FormBuilder) => {
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(TestFieldErrorComponent);
         fixture.detectChanges();
       }),
     );

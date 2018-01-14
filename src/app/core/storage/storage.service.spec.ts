@@ -3,10 +3,8 @@ import { ReStorageService } from './storage.service';
 import { TestBedUtils } from '../../../test-utils/test-bed-utils';
 
 describe('ReStorageService', () => {
-  beforeEach(() => {
-    TestBedUtils.configureTestingModule({
-      providers: [ReStorageService],
-    });
+  TestBedUtils.configureTestingModule({
+    providers: [],
   });
 
   it(

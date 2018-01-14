@@ -1,18 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TestBedUtils } from '../../../test-utils/test-bed-utils';
 import { OrderMockComponent } from './order-mock.component';
 
 describe('OrderMockComponent', () => {
   let component: OrderMockComponent;
   let fixture: ComponentFixture<OrderMockComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [OrderMockComponent],
-      }).compileComponents();
-    }),
-  );
+  TestBedUtils.configureTestingModule({
+    declarations: [OrderMockComponent],
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderMockComponent);
