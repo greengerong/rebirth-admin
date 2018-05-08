@@ -1,0 +1,80 @@
+{
+  "configVersion": 1,
+  "index": "/rebirth-admin/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/rebirth-admin/favicon.ico",
+        "/rebirth-admin/index.html"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/rebirth-admin/assets/common/after-sales.svg",
+        "/rebirth-admin/assets/common/document.svg",
+        "/rebirth-admin/assets/common/sales.svg",
+        "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.eot",
+        "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.svg",
+        "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.ttf",
+        "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.woff",
+        "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.woff2",
+        "/rebirth-admin/assets/images/plus.png",
+        "/rebirth-admin/assets/svg/gear.svg"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*"
+      ]
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "backend-api",
+      "patterns": [],
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/rebirth-admin/favicon.ico": "4e5edddb16a8bd1a27d6b68c8afa076cee889113",
+    "/rebirth-admin/assets/common/after-sales.svg": "d74f40254a21ac602caa3658c5642a9afbf36f69",
+    "/rebirth-admin/index.html": "ad06c84c58b7df3f059c8910e512b90b026099d8",
+    "/rebirth-admin/assets/common/document.svg": "369bd04b6699a64bdedfb658f7728eac79f2bbe1",
+    "/rebirth-admin/assets/common/sales.svg": "7c5307a3f32f26a460c85d122040c29135cc91c8",
+    "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
+    "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
+    "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
+    "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
+    "/rebirth-admin/assets/fonts/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
+    "/rebirth-admin/assets/images/plus.png": "b99e8cdcbf7b9b47bc1053c0dc4fa0a908d86f9b",
+    "/rebirth-admin/assets/svg/gear.svg": "f99aae30a4e96d22a96868274a7bdc12a7dbb92b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
+}
