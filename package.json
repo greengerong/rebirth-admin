@@ -5,7 +5,6 @@
   "scripts": {
     "ng": "ng",
     "mock": "node ./build/mock-server.js",
-    "pwa": "node ./build/sw-precache.js",
     "start": "npm-run-all --parallel mock serve",
     "build": "ng build --prod --aot --base-href=/rebirth-admin/",
     "serve": "ng serve",
@@ -96,7 +95,6 @@
     "prettier": "1.8.2",
     "protractor": "^5.1.2",
     "stubby": "^4.0.0",
-    "sw-precache": "^5.2.0",
     "ts-node": "^3.3.0",
     "tslint": "~5.7.0",
     "tslint-config-prettier": "^1.6.0",
