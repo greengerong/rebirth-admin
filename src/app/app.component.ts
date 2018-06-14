@@ -2,7 +2,6 @@ import { Component, ViewContainerRef } from '@angular/core';
 import { environment } from '../environments/environment';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { RebirthNGConfig } from 'rebirth-ng';
-import 'rxjs/add/operator/do';
 import { AuthorizationService } from 'rebirth-permission';
 import { LoadingService } from './core/loading/loading.service';
 import { HttpErrorResponse } from '@angular/common/http';

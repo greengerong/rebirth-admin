@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RoutesRecognized } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { filter, map } from 'rxjs/operators';
 
 @Injectable()
 export class TitleService {
@@ -9,8 +10,10 @@ export class TitleService {
 
   register() {
     this.router.events
-      .filter(event => event instanceof RoutesRecognized)
-      .map((event: RoutesRecognized) => this.getRouteTitle(event))
+      .pipe(
+        filter(event => event instanceof RoutesRecognized),
+        map((event: RoutesRecognized) => this.getRouteTitle(event)),
+      )
       .subscribe(pageTitle => this.title.setTitle(pageTitle));
   }
 

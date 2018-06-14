@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class MenuService {
@@ -13,7 +12,7 @@ export class MenuService {
   }
 
   private dummyMenus() {
-    return Observable.of({
+    return of({
       menus: [
         {
           link: '/manage/home',

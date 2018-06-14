@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { Body, POST, RebirthHttp } from 'rebirth-http';
 import { HttpClient } from '@angular/common/http';
 import { CurrentUser } from '../shared/model/current-user.model';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class LoginService extends RebirthHttp {
@@ -20,10 +20,12 @@ export class LoginService extends RebirthHttp {
     password: string;
   }): Observable<CurrentUser> {
     const authorizationService = this.authorizationService;
-    return this.innerLogin(loginInfo).map(user => {
-      authorizationService.setCurrentUser(user);
-      return user;
-    });
+    return this.innerLogin(loginInfo).pipe(
+      map(user => {
+        authorizationService.setCurrentUser(user);
+        return user;
+      }),
+    );
   }
 
   @POST('login')

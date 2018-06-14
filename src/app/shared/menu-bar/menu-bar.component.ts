@@ -9,6 +9,7 @@ import {
 import { WindowRef } from 'rebirth-ng';
 import { MenuConfig } from './menu-config.model';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu-bar',
@@ -54,8 +55,7 @@ export class MenuBarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.updateMenuBarStatus();
     this.windowResize
-      .debounceTime(200)
-      .distinctUntilChanged()
+      .pipe(debounceTime(200), distinctUntilChanged())
       .subscribe(() => this.updateMenuBarStatus());
 
     this.listens.push(
