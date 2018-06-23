@@ -55,7 +55,7 @@
     "rebirth-event-source": "^6.0.1",
     "rebirth-http": "^6.0.2",
     "rebirth-ng": "^6.0.3",
-    "rebirth-permission": "^6.0.1",
+    "rebirth-permission": "^6.0.2",
     "rebirth-storage": "^6.0.2",
     "rxjs": "^6.1.0",
     "web-animations-js": "^2.3.1",
