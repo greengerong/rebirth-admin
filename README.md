@@ -6,7 +6,7 @@
 
 ## 背景
 
-`RebirthAdmin`是一套基于Angular 2，@angular/cli [@Rebirth/NG](https://github.com/greengerong/rebirth-ng)，Bootstrap-saas的后端管理系统。目标在于方便基于Angular 2的项目快速启动，包含完善的目录结构组织、打包构建、权限、http设置等基础设施。
+`RebirthAdmin`是一套基于Angular，@angular/cli [@Rebirth/NG](https://github.com/greengerong/rebirth-ng)，Bootstrap-saas的后端管理系统。目标在于方便基于Angular的项目快速启动，包含完善的目录结构组织、打包构建、权限、http设置等基础设施。
 
 ## 需求
 
