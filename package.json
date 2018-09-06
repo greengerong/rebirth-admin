@@ -54,7 +54,7 @@
     "normalize.css": "^7.0.0",
     "rebirth-event-source": "^6.0.1",
     "rebirth-http": "^6.0.2",
-    "rebirth-ng": "^6.0.3",
+    "rebirth-ng": "file:../rebirth-ng-bak/dist/rebirth-ng/rebirth-ng-6.0.3.tgz",
     "rebirth-permission": "^6.0.2",
     "rebirth-storage": "^6.0.2",
     "rxjs": "^6.1.0",

@@ -18,7 +18,7 @@ import { TitleService } from './title/title.service';
     RebirthHttpModule,
     RebirthStorageModule,
     RebirthEventSourceModule,
-    RebirthNGModule.forRoot(),
+    RebirthNGModule,
     RebirthPermissionModule.forRoot({ loginPage: '/login' }),
   ],
   providers: [
